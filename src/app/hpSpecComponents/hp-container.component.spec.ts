@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HpContainerComponent } from './hp-container.component';
+import { HpContainerComponent } from '../hpComponents/hp-container.component';
 
 describe('HpContainerComponent', () => {
   let component: HpContainerComponent;
