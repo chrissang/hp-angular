@@ -1,7 +1,5 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<section>
+<section *ngIf="hpFunctions.displayOn(displayGroupViewPortSize, viewPort)" class="large-feature-module background-color-off-white" data-module-type="LF">
   <h1>Large Feature</h1>
+  <ng-template v-for="item in largeFeatureModulesSections"></template>
 </section>
-
-
 
