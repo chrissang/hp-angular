@@ -12,8 +12,8 @@ export class HpService {
                       'displayModuleOn': 'small',
                       'image': {
                           'customImage': {
-                              'small': '/images/hp/B/A1_LF_20171204_800px.jpg',
-                              'large': '/images/hp/B/A1_LF_20171204_1680px.jpg'
+                              'small': 'https://www.uncommongoods.com/images/hp/B/A1_LF_20171204_800px.jpg',
+                              'large': 'https://www.uncommongoods.com/images/hp/B/A1_LF_20171204_1680px.jpg'
                           },
                           'link': '/sets/top-rated-gifts',
                           'description': 'Birthstone_Wine_Bottle_Stopper'
@@ -299,8 +299,8 @@ export class HpService {
                       'item': '47522',
                       'image': {
                           'customImage': {
-                              'small': '/images/hp/B/D1_CG_20171204_360px.jpg',
-                              'large': '/images/hp/B/D1_CG_20171204_640px.jpg'
+                              'small': 'https://www.uncommongoods.com/images/hp/B/D1_CG_20171204_360px.jpg',
+                              'large': 'https://www.uncommongoods.com/images/hp/B/D1_CG_20171204_640px.jpg'
                           },
                           'link': '/curated/brand-new-best-sellers',
                           'description': 'Beaker_Terrarium_Kit'
@@ -310,8 +310,8 @@ export class HpService {
                       'item': '47177',
                       'image': {
                           'customImage': {
-                              'small': '/images/hp/B/D2_CG_20171204_360px.jpg',
-                              'large': '/images/hp/B/D2_CG_20171204_640px.jpg'
+                              'small': 'https://www.uncommongoods.com/images/hp/B/D2_CG_20171204_360px.jpg',
+                              'large': 'https://www.uncommongoods.com/images/hp/B/D2_CG_20171204_640px.jpg'
                           },
                           'link': '/curated/brand-new-best-sellers',
                           'description': 'Sugar_Maple_Necklace'
@@ -321,8 +321,8 @@ export class HpService {
                       'item': '47507',
                       'image': {
                           'customImage': {
-                              'small': '/images/hp/B/D3_CG_20171204_360px.jpg',
-                              'large': '/images/hp/B/D3_CG_20171204_640px.jpg'
+                              'small': 'https://www.uncommongoods.com/images/hp/B/D3_CG_20171204_360px.jpg',
+                              'large': 'https://www.uncommongoods.com/images/hp/B/D3_CG_20171204_640px.jpg'
                           },
                           'link': '/curated/brand-new-best-sellers',
                           'description': 'Sunday_Morning_Candle'
@@ -332,8 +332,8 @@ export class HpService {
                       'item': '47444',
                       'image': {
                           'customImage': {
-                              'small': '/images/hp/B/D4_CG_20171204_360px.jpg',
-                              'large': '/images/hp/B/D4_CG_20171204_640px.jpg'
+                              'small': 'https://www.uncommongoods.com/images/hp/B/D4_CG_20171204_360px.jpg',
+                              'large': 'https://www.uncommongoods.com/images/hp/B/D4_CG_20171204_640px.jpg'
                           },
                           'link': '/curated/brand-new-best-sellers',
                           'description': 'Faceted_Nesting_Bowls'
@@ -343,8 +343,8 @@ export class HpService {
                       'item': '47416',
                       'image': {
                           'customImage': {
-                              'small': '/images/hp/B/D5_CG_20171204_360px.jpg',
-                              'large': '/images/hp/B/D5_CG_20171204_640px.jpg'
+                              'small': 'https://www.uncommongoods.com/images/hp/B/D5_CG_20171204_360px.jpg',
+                              'large': 'https://www.uncommongoods.com/images/hp/B/D5_CG_20171204_640px.jpg'
                           },
                           'link': '/curated/brand-new-best-sellers',
                           'description': 'Classic_Wooden_Yoyo'
@@ -354,8 +354,8 @@ export class HpService {
                       'item': '47536',
                       'image': {
                           'customImage': {
-                              'small': '/images/hp/B/D6_CG_20171204_360px.jpg',
-                              'large': '/images/hp/B/D6_CG_20171204_640px.jpg'
+                              'small': 'https://www.uncommongoods.com/images/hp/B/D6_CG_20171204_360px.jpg',
+                              'large': 'https://www.uncommongoods.com/images/hp/B/D6_CG_20171204_640px.jpg'
                           },
                           'link': '/curated/brand-new-best-sellers',
                           'description': 'Narwhal_Sailcloth_Tote'
@@ -377,8 +377,8 @@ export class HpService {
                       },
                       'image': {
                           'customImage': {
-                              'small': '/images/hp/B/H1_ES_20171204_640px.jpg',
-                              'large': '/images/hp/B/H1_ES_20171204_1200px.jpg'
+                              'small': 'https://www.uncommongoods.com/images/hp/B/H1_ES_20171204_640px.jpg',
+                              'large': 'https://www.uncommongoods.com/images/hp/B/H1_ES_20171204_1200px.jpg'
                           },
                           'link': 'http://blog.uncommongoods.com/holiday-gift-guides/',
                           'description': 'Gift_Guides'
@@ -483,8 +483,8 @@ export class HpService {
                       'displayModuleOn': 'small',
                       'image': {
                           'customImage': {
-                              'small': '/images/hp/B/F5_TL_20171204_180px.jpg',
-                              'large': '/images/hp/B/F5_TL_20171204_640px.jpg'
+                              'small': 'https://www.uncommongoods.com/images/hp/B/F5_TL_20171204_180px.jpg',
+                              'large': 'https://www.uncommongoods.com/images/hp/B/F5_TL_20171204_640px.jpg'
                           },
                           'link': '/fun/pets?view=all',
                           'description': 'Pedigree_Poem_Pillow'
@@ -500,8 +500,8 @@ export class HpService {
                       'displayModuleOn': 'small',
                       'image': {
                           'customImage': {
-                              'small': '/images/hp/B/F6_TL_20171204_180px.jpg',
-                              'large': '/images/hp/B/F6_TL_20171204_640px.jpg'
+                              'small': 'https://www.uncommongoods.com/images/hp/B/F6_TL_20171204_180px.jpg',
+                              'large': 'https://www.uncommongoods.com/images/hp/B/F6_TL_20171204_640px.jpg'
                           },
                           'link': '/fun/games-puzzles/games-puzzles',
                           'description': 'Basketball_Dartboard'
@@ -579,8 +579,8 @@ export class HpService {
                       'displayModuleOn': 'small',
                       'image': {
                           'customImage': {
-                              'small': '/images/hp/B/G4_BD_20171120_180px.jpg',
-                              'large': '/images/hp/B/G4_BD_20171120_640px.jpg'
+                              'small': 'https://www.uncommongoods.com/images/hp/B/G4_BD_20171120_180px.jpg',
+                              'large': 'https://www.uncommongoods.com/images/hp/B/G4_BD_20171120_640px.jpg'
                           },
                           'link': '/gifts/by-price/gifts-under-50',
                           'description': 'Bad_Dog_Tumblers'
@@ -607,8 +607,8 @@ export class HpService {
                       },
                       'image': {
                           'customImage': {
-                              'small': '/images/hp/B/E1_ES_20171113_640px.jpg',
-                              'large': '/images/hp/B/E1_ES_20171113_1200px.gif'
+                              'small': 'https://www.uncommongoods.com/images/hp/B/E1_ES_20171113_640px.jpg',
+                              'large': 'https://www.uncommongoods.com/images/hp/B/E1_ES_20171113_1200px.gif'
                           },
                           'link': '/sunny/giftfinder/intro',
                           'description': 'Sunny'
@@ -645,8 +645,8 @@ export class HpService {
                       },
                       'image': {
                           'customImage': {
-                              'small': '/images/hp/B/I1_SF_20171204_360px.jpg',
-                              'large': '/images/hp/B/I1_SF_20171204_640px.jpg'
+                              'small': 'https://www.uncommongoods.com/images/hp/B/I1_SF_20171204_360px.jpg',
+                              'large': 'https://www.uncommongoods.com/images/hp/B/I1_SF_20171204_640px.jpg'
                           },
                           'link': 'http://blog.uncommongoods.com/2017/make-gift-baskets/',
                           'description': 'Taco_Gift_Basket'
@@ -699,8 +699,8 @@ export class HpService {
                       },
                       'image': {
                           'customImage': {
-                              'small': '/images/hp/B/I3_SF_20171204_360px.jpg',
-                              'large': '/images/hp/B/I3_SF_20171204_640px.jpg'
+                              'small': 'https://www.uncommongoods.com/images/hp/B/I3_SF_20171204_360px.jpg',
+                              'large': 'https://www.uncommongoods.com/images/hp/B/I3_SF_20171204_640px.jpg'
                           },
                           'link': 'http://blog.uncommongoods.com/2017/gift-lab-portable-camp-grill-and-charger/',
                           'description': 'Portable_Camp_Grill_and_Charger_blog'

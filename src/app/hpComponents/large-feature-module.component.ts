@@ -15,7 +15,6 @@ export class LargeFeatureModuleComponent implements OnInit {
   }
   ngOnInit() {
     this.displayGroupViewPortSize = this.hpFunctions.displayGroup(this.componentData.sections);
-    console.log(this.hpFunctions.displayOn(this.displayGroupViewPortSize, this.viewPort));
   }
 
   isVideo(video) {

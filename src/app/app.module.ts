@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HpContainerComponent } from './hpComponents/hp-container.component';
 import { HpService } from './hp.service';
+import { CommonModule } from '@angular/common';
 import { HpFunctionsService } from './hp-functions.service';
 import { LargeFeatureModuleComponent } from './hpComponents/large-feature-module.component';
 import { SmallFeatureModuleComponent } from './hpComponents/small-feature-module.component';
@@ -43,7 +44,8 @@ import { ButtonLinkDoubleModuleComponent } from './hpComponents/button-link-doub
     ButtonLinkDoubleModuleComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CommonModule
   ],
   providers: [
     HpService,
