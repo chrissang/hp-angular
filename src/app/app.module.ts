@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HpContainerComponent } from './hpComponents/hp-container.component';
 import { HpService } from './hp.service';
 import { CommonModule } from '@angular/common';
-import { HpFunctionsService } from './hp-functions.service';
 import { LargeFeatureModuleComponent } from './hpComponents/large-feature-module.component';
 import { SmallFeatureModuleComponent } from './hpComponents/small-feature-module.component';
 import { SeoLinkModuleComponent } from './hpComponents/seo-link-module.component';
@@ -16,6 +15,7 @@ import { BasicStoryModuleComponent } from './hpComponents/basic-story-module.com
 import { TextLinkModuleComponent } from './hpComponents/text-link-module.component';
 import { ImageLinkDoubleModuleComponent } from './hpComponents/image-link-double-module.component';
 import { ButtonLinkDoubleModuleComponent } from './hpComponents/button-link-double-module.component';
+import { TestingComponent } from './testing/testing.component';
 
 
 @NgModule({
@@ -30,7 +30,8 @@ import { ButtonLinkDoubleModuleComponent } from './hpComponents/button-link-doub
     BasicStoryModuleComponent,
     TextLinkModuleComponent,
     ImageLinkDoubleModuleComponent,
-    ButtonLinkDoubleModuleComponent
+    ButtonLinkDoubleModuleComponent,
+    TestingComponent
   ],
   entryComponents: [
     LargeFeatureModuleComponent,
@@ -48,8 +49,7 @@ import { ButtonLinkDoubleModuleComponent } from './hpComponents/button-link-doub
     CommonModule
   ],
   providers: [
-    HpService,
-    HpFunctionsService
+    HpService
   ],
   bootstrap: [AppComponent]
 })
