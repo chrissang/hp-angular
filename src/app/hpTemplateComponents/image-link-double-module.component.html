@@ -1,3 +1,30 @@
-<section>
-  <h1>image-link-double-module</h1>
+<section *ngIf="hpService.displayOn(displayGroupViewPortSize, viewPortSize)" class="image-link-double-module background-color-off-white" data-module-type="LD">
+    <div class="row fullwidth waterColor">
+        <div class="small-12 large-11 xlarge-10 xxlarge-8 small-centered columns container">
+            <div *ngIf="section.text" class="row">
+                <div class="small-12 xlarge-10 xxlarge-8 text-center xlarge-centered columns">
+                    <h2>
+                        <a class="a-secondary" [href]="section.link" [attr.data-description]="section.description" [attr.data-sectionDescription]="section.description" data-type="Section">{{ section.text }}</a>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-11 medium-12 small-centered columns">
+                    <ng-template ngFor let-item [ngForOf]="imageLinkDoubleModuleSections">
+                        <div *ngIf="hpService.displayOn(displayGroupViewPortSize, viewPortSize)" [ngClass]="hpService.classNameBlockGrid(imageLinkDoubleModuleSections,viewPortSize) + ' productContainer text-center'">
+                            <div class="responsively-lazy preventReflow">
+                                <a [href]="item.image.link" [attr.data-description]="item.image.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="section.description" data-type="Image">
+                                    <img [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [src]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPathSrc(item.item,640)"[alt]="item.cta.text"/>
+                                </a>
+                            </div>
+                            <h4>
+                                <a class="a-secondary" [href]="item.cta.link" [attr.data-description]="item.cta.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="section.description" data-type="CTA">{{ item.cta.text }}</a>
+                            </h4>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

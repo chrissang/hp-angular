@@ -11,8 +11,8 @@ export class SeoLinkModuleComponent implements OnInit {
   displayGroupViewPortSize: string;
   seo1: object;
   seo2: object;
-  seo1Sections: object;
-  seo2Sections: object;
+  seo1Sections: any[];
+  seo2Sections: any[];
 
   constructor(private hpService: HpService) {}
 

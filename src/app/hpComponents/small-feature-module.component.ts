@@ -9,7 +9,7 @@ export class SmallFeatureModuleComponent implements OnInit {
   @Input() componentData: any;
   @Input() viewPortSize: string;
   displayGroupViewPortSize: string;
-  smModulesSections: object;
+  smModulesSections: any[];
 
   constructor(private hpService: HpService) {}
 

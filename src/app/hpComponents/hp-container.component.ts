@@ -10,6 +10,7 @@ import { BasicStoryModuleComponent } from './basic-story-module.component';
 import { TextLinkModuleComponent } from './text-link-module.component';
 import { ImageLinkDoubleModuleComponent } from './image-link-double-module.component';
 import { ButtonLinkDoubleModuleComponent } from './button-link-double-module.component';
+import { ContentChild } from '@angular/core/src/metadata/di';
 
 @Component({
   selector: 'app-hp-container',
@@ -17,7 +18,7 @@ import { ButtonLinkDoubleModuleComponent } from './button-link-double-module.com
 })
 
 export class HpContainerComponent implements OnInit, AfterContentInit {
-  @ViewChild('hpModuleContainer', { read: ViewContainerRef}) hpModuleContainer;
+  // @ViewChild('hpModuleContainer', { read: ViewContainerRef}) hpModuleContainer;
   jsonData;
   arrayOfData;
   hpService;
@@ -59,6 +60,7 @@ export class HpContainerComponent implements OnInit, AfterContentInit {
     const size = window.getComputedStyle(document.querySelector('body'),
     ':before').getPropertyValue('content').replace(/\"/g, '');
    this.viewPortSize = size;
+   this.hpService.hpTracking();
   }
 
   ngAfterContentInit() {

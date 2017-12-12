@@ -20,6 +20,7 @@ export class HpService {
         const size = window.getComputedStyle(document.querySelector('body'),
          ':before').getPropertyValue('content').replace(/\"/g, '');
         this.viewPort.next(size);
+        this.hpTracking();
     }
 
     getHpData() {
@@ -28,32 +29,31 @@ export class HpService {
                 'large-feature-module': {
                     'sections': [
                         {
-                            'item': 45886,
+                            'item': '',
                             'displayModuleOn': 'small',
                             'image': {
                                 'customImage': {
-                                    'small': 'https://www.uncommongoods.com/images/hp/B/A1_LF_20171204_800px.jpg',
-                                    'large': 'https://www.uncommongoods.com/images/hp/B/A1_LF_20171204_1680px.jpg'
+                                    'small': 'https://www.uncommongoods.com/images/hp/B/A1_LF_20171211_800px.jpg',
+                                    'large': 'https://www.uncommongoods.com/images/hp/B/A1_LF_20171211_1680px.jpg'
                                 },
-                                'link': '/sets/top-rated-gifts',
-                                'description': 'Birthstone_Wine_Bottle_Stopper'
+                                'link': '/gifts/christmas/stocking-stuffers',
+                                'description': 'Overhead_Stocking_stuffers'
                             },
                             'headline': {
-                                'text': 'Your Favorite Things',
-                                'link': '/sets/top-rated-gifts',
-                                'description': 'your_favorite_things'
+                                'text': 'Gifts for Un-Stuffy Stockings',
+                                'link': '/gifts/christmas/stocking-stuffers',
+                                'description': 'unstuffy_stockings'
                             },
                             'cta': {
-                                'text': 'shop top-rated gifts',
-                                'link': '/sets/top-rated-gifts',
-                                'description': 'shop_top-rated_gifts'
+                                'text': 'shop stocking stuffers',
+                                'link': '/gifts/christmas/stocking-stuffers',
+                                'description': 'shop_stocking_stuffers'
                             },
                             'headlineB': {
                                 'text': 'Unforgettable Gifts for Everyone',
                                 'link': '/gifts?view=all',
                                 'description': 'Unforgettable_Gifts_for_Everyone'
                             },
-                            'itemB': 45886,
                             'ctaB': {
                                 'text': 'shop now',
                                 'link': '/gifts?view=all',
@@ -110,14 +110,14 @@ export class HpService {
                         },
                         'sections': [
                             {
-                                'item': 46888,
+                                'item': 47083,
                                 'image': {
                                     'customImage': {
                                         'small': '',
                                         'large': ''
                                     },
                                     'link': '/gifts/by-price/gifts-under-25',
-                                    'description': 'Felt_Hummingbird_Ornament'
+                                    'description': 'Smitten_Mitten_Ornament'
                                 },
                                 'cta': {
                                     'text': '$25 & under',
@@ -126,14 +126,14 @@ export class HpService {
                                 }
                             },
                             {
-                                'item': 40755,
+                                'item': 22405,
                                 'image': {
                                     'customImage': {
                                         'small': '',
                                         'large': ''
                                     },
                                     'link': '/gifts/by-price/gifts-under-50',
-                                    'description': 'Chakra_Candles_-_Set_of_7'
+                                    'description': 'Pistachio_Pedestal'
                                 },
                                 'cta': {
                                     'text': '$50 & under',
@@ -174,14 +174,14 @@ export class HpService {
                                 }
                             },
                             {
-                                'item': 47514,
+                                'item': 47499,
                                 'image': {
                                     'customImage': {
                                         'small': '',
                                         'large': ''
                                     },
                                     'link': '/this-just-in',
-                                    'description': 'Holiday_Spruce_Grow_Kit'
+                                    'description': 'Bubble_Tea_Kit'
                                 },
                                 'cta': {
                                     'text': 'this just in',
@@ -190,14 +190,14 @@ export class HpService {
                                 }
                             },
                             {
-                                'item': 43628,
+                                'item': 42383,
                                 'image': {
                                     'customImage': {
                                         'small': '',
                                         'large': ''
                                     },
                                     'link': '/sale',
-                                    'description': 'Beating_Heart_Wall_Clock'
+                                    'description': 'Unicorn_Pet_Sweater'
                                 },
                                 'cta': {
                                     'text': 'sale',
@@ -316,226 +316,75 @@ export class HpService {
                     },
                     'sections': [
                         {
-                            'item': '47522',
+                            'item': '47340',
                             'image': {
                                 'customImage': {
-                                    'small': 'https://www.uncommongoods.com/images/hp/B/D1_CG_20171204_360px.jpg',
-                                    'large': 'https://www.uncommongoods.com/images/hp/B/D1_CG_20171204_640px.jpg'
+                                    'small': 'https://www.uncommongoods.com/images/hp/B/D1_CG_20171211_360px.jpg',
+                                    'large': 'https://www.uncommongoods.com/images/hp/B/D1_CG_20171211_640px.jpg'
                                 },
                                 'link': '/curated/brand-new-best-sellers',
-                                'description': 'Beaker_Terrarium_Kit'
+                                'description': 'Lot_of_Love_Tagua_Bib_Necklace'
                             }
                         },
                         {
-                            'item': '47177',
+                            'item': '47508',
                             'image': {
                                 'customImage': {
-                                    'small': 'https://www.uncommongoods.com/images/hp/B/D2_CG_20171204_360px.jpg',
-                                    'large': 'https://www.uncommongoods.com/images/hp/B/D2_CG_20171204_640px.jpg'
+                                    'small': 'https://www.uncommongoods.com/images/hp/B/D2_CG_20171211_360px.jpg',
+                                    'large': 'https://www.uncommongoods.com/images/hp/B/D2_CG_20171211_640px.jpg'
                                 },
                                 'link': '/curated/brand-new-best-sellers',
-                                'description': 'Sugar_Maple_Necklace'
+                                'description': 'Love_Potion_Candle'
                             }
                         },
                         {
-                            'item': '47507',
+                            'item': '47199',
                             'image': {
                                 'customImage': {
-                                    'small': 'https://www.uncommongoods.com/images/hp/B/D3_CG_20171204_360px.jpg',
-                                    'large': 'https://www.uncommongoods.com/images/hp/B/D3_CG_20171204_640px.jpg'
+                                    'small': 'https://www.uncommongoods.com/images/hp/B/D3_CG_20171211_360px.jpg',
+                                    'large': 'https://www.uncommongoods.com/images/hp/B/D3_CG_20171211_640px.jpg'
                                 },
                                 'link': '/curated/brand-new-best-sellers',
-                                'description': 'Sunday_Morning_Candle'
+                                'description': 'Crooked_Stem_Wine_Glass_Set'
                             }
                         },
                         {
-                            'item': '47444',
+                            'item': '47598',
                             'image': {
                                 'customImage': {
-                                    'small': 'https://www.uncommongoods.com/images/hp/B/D4_CG_20171204_360px.jpg',
-                                    'large': 'https://www.uncommongoods.com/images/hp/B/D4_CG_20171204_640px.jpg'
+                                    'small': 'https://www.uncommongoods.com/images/hp/B/D4_CG_20171211_360px.jpg',
+                                    'large': 'https://www.uncommongoods.com/images/hp/B/D4_CG_20171211_640px.jpg'
                                 },
                                 'link': '/curated/brand-new-best-sellers',
-                                'description': 'Faceted_Nesting_Bowls'
+                                'description': 'Velvet_Journal'
                             }
                         },
                         {
-                            'item': '47416',
+                            'item': '47349',
                             'image': {
                                 'customImage': {
-                                    'small': 'https://www.uncommongoods.com/images/hp/B/D5_CG_20171204_360px.jpg',
-                                    'large': 'https://www.uncommongoods.com/images/hp/B/D5_CG_20171204_640px.jpg'
+                                    'small': 'https://www.uncommongoods.com/images/hp/B/D5_CG_20171211_360px.jpg',
+                                    'large': 'https://www.uncommongoods.com/images/hp/B/D5_CG_20171211_640px.jpg'
                                 },
                                 'link': '/curated/brand-new-best-sellers',
-                                'description': 'Classic_Wooden_Yoyo'
+                                'description': 'Glass_Half_Full_Letterpress'
                             }
                         },
                         {
-                            'item': '47536',
+                            'item': '47493',
                             'image': {
                                 'customImage': {
-                                    'small': 'https://www.uncommongoods.com/images/hp/B/D6_CG_20171204_360px.jpg',
-                                    'large': 'https://www.uncommongoods.com/images/hp/B/D6_CG_20171204_640px.jpg'
+                                    'small': 'https://www.uncommongoods.com/images/hp/B/D6_CG_20171211_360px.jpg',
+                                    'large': 'https://www.uncommongoods.com/images/hp/B/D6_CG_20171211_640px.jpg'
                                 },
                                 'link': '/curated/brand-new-best-sellers',
-                                'description': 'Narwhal_Sailcloth_Tote'
+                                'description': 'Parker_the_Interactive_Bear_Patient_(view_2)'
                             }
                         }
                     ]
                 }
             },
             'E': {
-                'extended-story-module': {
-                    'sections': [
-                        {
-                            'item': '',
-                            'displayModuleOn': 'small',
-                            'section': {
-                                'text': '',
-                                'link': '',
-                                'description': ''
-                            },
-                            'image': {
-                                'customImage': {
-                                    'small': 'https://www.uncommongoods.com/images/hp/B/H1_ES_20171204_640px.jpg',
-                                    'large': 'https://www.uncommongoods.com/images/hp/B/H1_ES_20171204_1200px.jpg'
-                                },
-                                'link': 'http://blog.uncommongoods.com/holiday-gift-guides/',
-                                'description': 'Gift_Guides'
-                            },
-                            'headline': {
-                                'text': '22 Happy Holiday Gift Guides',
-                                'link': 'http://blog.uncommongoods.com/holiday-gift-guides/',
-                                'description': '22_gift_guides_for_festive_giving'
-                            },
-                            'copy': {
-                                'text': 'Funny Gifts, Gifts for Foodies, Gifts for Geeks...',
-                                'link': 'http://blog.uncommongoods.com/holiday-gift-guides/',
-                                'description': 'browse_them_all'
-                            },
-                            'cta': {
-                                'text': 'browse them all',
-                                'link': 'http://blog.uncommongoods.com/holiday-gift-guides/',
-                                'description': 'browse_them_all'
-                            }
-                        }
-                    ]
-                }
-            },
-            'F': {
-                'text-link-module': {
-                    'section': {
-                        'text': 'Shop by Interest',
-                        'link': '/fun/by-interest',
-                        'description': 'shop_by_interest'
-                    },
-                    'sections': [
-                        {
-                            'item': 43038,
-                            'displayModuleOn': 'small',
-                            'image': {
-                                'customImage': {
-                                    'small': '',
-                                    'large': ''
-                                },
-                                'link': '/fun/by-interest/geek-gifts',
-                                'description': 'Long_Distance_Touch_Lamp'
-                            },
-                            'cta': {
-                                'text': 'geeks',
-                                'link': '/fun/by-interest/geek-gifts',
-                                'description': 'geeks'
-                            }
-                        },
-                        {
-                            'item': 27301,
-                            'displayModuleOn': 'small',
-                            'image': {
-                                'customImage': {
-                                    'small': '',
-                                    'large': ''
-                                },
-                                'link': '/fun/wine-dine/cooking-gifts',
-                                'description': 'Butter_Churner'
-                            },
-                            'cta': {
-                                'text': 'chefs',
-                                'link': '/fun/wine-dine/cooking-gifts',
-                                'description': 'chefs'
-                            }
-                        },
-                        {
-                            'item': 20926,
-                            'displayModuleOn': 'small',
-                            'image': {
-                                'customImage': {
-                                    'small': '',
-                                    'large': ''
-                                },
-                                'link': '/fun/by-interest/music-gifts',
-                                'description': 'Pick_Punch'
-                            },
-                            'cta': {
-                                'text': 'music lovers',
-                                'link': '/fun/by-interest/music-gifts',
-                                'description': 'music_lovers'
-                            }
-                        },
-                        {
-                            'item': 42184,
-                            'displayModuleOn': 'small',
-                            'image': {
-                                'customImage': {
-                                    'small': '',
-                                    'large': ''
-                                },
-                                'link': '/fun/by-interest/travel-gifts',
-                                'description': 'Collapsible_Water_Bottle'
-                            },
-                            'cta': {
-                                'text': 'travelers',
-                                'link': '/fun/by-interest/travel-gifts',
-                                'description': 'travelers'
-                            }
-                        },
-                        {
-                            'item': 44480,
-                            'displayModuleOn': 'small',
-                            'image': {
-                                'customImage': {
-                                    'small': 'https://www.uncommongoods.com/images/hp/B/F5_TL_20171204_180px.jpg',
-                                    'large': 'https://www.uncommongoods.com/images/hp/B/F5_TL_20171204_640px.jpg'
-                                },
-                                'link': '/fun/pets?view=all',
-                                'description': 'Pedigree_Poem_Pillow'
-                            },
-                            'cta': {
-                                'text': 'pet lovers',
-                                'link': '/fun/pets?view=all',
-                                'description': 'pet_lovers'
-                            }
-                        },
-                        {
-                            'item': 41757,
-                            'displayModuleOn': 'small',
-                            'image': {
-                                'customImage': {
-                                    'small': 'https://www.uncommongoods.com/images/hp/B/F6_TL_20171204_180px.jpg',
-                                    'large': 'https://www.uncommongoods.com/images/hp/B/F6_TL_20171204_640px.jpg'
-                                },
-                                'link': '/fun/games-puzzles/games-puzzles',
-                                'description': 'Basketball_Dartboard'
-                            },
-                            'cta': {
-                                'text': 'gamers',
-                                'link': '/fun/games-puzzles/games-puzzles',
-                                'description': 'gamers'
-                            }
-                        }
-                    ]
-                }
-            },
-            'G': {
                 'button-link-double-module': {
                     'section': {
                         'text': 'Holiday Favorites',
@@ -578,20 +427,20 @@ export class HpService {
                             }
                         },
                         {
-                            'item': 42986,
+                            'item': 41266,
                             'displayModuleOn': 'small',
                             'image': {
                                 'customImage': {
-                                    'small': '',
-                                    'large': ''
+                                    'small': 'https://www.uncommongoods.com/images/hp/B/G1_BD_20171211_180px.jpg',
+                                    'large': 'https://www.uncommongoods.com/images/hp/B/G1_BD_20171211_360px.jpg'
                                 },
-                                'link': '/gifts/by-recipient/gifts-for-kids',
-                                'description': 'Personalized_Night_Before_Christmas_Book'
+                                'link': '/home-garden/holiday-decorating/holiday-decorating',
+                                'description': 'My_Cinema_Lightbox'
                             },
                             'cta': {
-                                'text': 'christmas gifts for kids',
-                                'link': '/gifts/by-recipient/gifts-for-kids',
-                                'description': 'christmas_gifts_for_kids'
+                                'text': 'holiday decorating',
+                                'link': '/home-garden/holiday-decorating/holiday-decorating',
+                                'description': 'holiday_decorating'
                             }
                         },
                         {
@@ -606,9 +455,160 @@ export class HpService {
                                 'description': 'Bad_Dog_Tumblers'
                             },
                             'cta': {
-                                'text': 'gifts under $50',
+                                'text': '$50 & under',
                                 'link': '/gifts/by-price/gifts-under-50',
-                                'description': 'gifts_under_$50'
+                                'description': '$50_&_under'
+                            }
+                        }
+                    ]
+                }
+            },
+            'F': {
+                'extended-story-module': {
+                    'sections': [
+                        {
+                            'item': '',
+                            'displayModuleOn': 'small',
+                            'section': {
+                                'text': '',
+                                'link': '',
+                                'description': ''
+                            },
+                            'image': {
+                                'customImage': {
+                                    'small': 'https://www.uncommongoods.com/images/hp/B/F1_ES_20171211_360px.jpg',
+                                    'large': 'https://www.uncommongoods.com/images/hp/B/F1_ES_20171211_1200px.jpg'
+                                },
+                                'link': 'http://blog.uncommongoods.com/holiday-gift-guides/',
+                                'description': 'Gift_Guides'
+                            },
+                            'headline': {
+                                'text': '23 Holiday Gift Guides',
+                                'link': 'http://blog.uncommongoods.com/holiday-gift-guides/',
+                                'description': '23_Holiday_Gift_Guides'
+                            },
+                            'copy': {
+                                'text': 'For him, her, teens, math geeks, animal lovers, foodies, and more.',
+                                'link': 'http://blog.uncommongoods.com/holiday-gift-guides/',
+                                'description': 'browse_them_all'
+                            },
+                            'cta': {
+                                'text': 'browse them all',
+                                'link': 'http://blog.uncommongoods.com/holiday-gift-guides/',
+                                'description': 'browse_them_all'
+                            }
+                        }
+                    ]
+                }
+            },
+            'G': {
+                'text-link-module': {
+                    'section': {
+                        'text': 'Shop for Everyone on Your List',
+                        'link': '/fun/by-interest',
+                        'description': 'shop_by_interest'
+                    },
+                    'sections': [
+                        {
+                            'item': 40465,
+                            'displayModuleOn': 'small',
+                            'image': {
+                                'customImage': {
+                                    'small': '',
+                                    'large': ''
+                                },
+                                'link': '/fun/by-interest/geek-gifts',
+                                'description': 'Planet_Lollipops'
+                            },
+                            'cta': {
+                                'text': 'geeks',
+                                'link': '/fun/by-interest/geek-gifts',
+                                'description': 'geeks'
+                            }
+                        },
+                        {
+                            'item': 44160,
+                            'displayModuleOn': 'small',
+                            'image': {
+                                'customImage': {
+                                    'small': '',
+                                    'large': ''
+                                },
+                                'link': '/fun/wine-dine/cooking-gifts',
+                                'description': 'Stoneware_Garlic_Keeper'
+                            },
+                            'cta': {
+                                'text': 'chefs',
+                                'link': '/fun/wine-dine/cooking-gifts',
+                                'description': 'chefs'
+                            }
+                        },
+                        {
+                            'item': 42998,
+                            'displayModuleOn': 'small',
+                            'image': {
+                                'customImage': {
+                                    'small': '',
+                                    'large': ''
+                                },
+                                'link': '/home-garden/garden?view=all',
+                                'description': 'Mason_Jar_Indoor_Flower_Garden'
+                            },
+                            'cta': {
+                                'text': 'gardeners',
+                                'link': '/home-garden/garden?view=all',
+                                'description': 'gardeners'
+                            }
+                        },
+                        {
+                            'item': 26627,
+                            'displayModuleOn': 'small',
+                            'image': {
+                                'customImage': {
+                                    'small': '',
+                                    'large': ''
+                                },
+                                'link': '/fun/by-interest/travel-gifts',
+                                'description': 'National_Parks_Explorer_Map'
+                            },
+                            'cta': {
+                                'text': 'travelers',
+                                'link': '/fun/by-interest/travel-gifts',
+                                'description': 'travelers'
+                            }
+                        },
+                        {
+                            'item': 44480,
+                            'displayModuleOn': 'small',
+                            'image': {
+                                'customImage': {
+                                    'small': '',
+                                    'large': ''
+                                },
+                                'link': '/fun/pets?view=all',
+                                'description': 'Pedigree_Poem_Pillow'
+                            },
+                            'cta': {
+                                'text': 'pet lovers',
+                                'link': '/fun/pets?view=all',
+                                'description': 'pet_lovers'
+                            }
+                        },
+                        {
+                            'item': 27131,
+                            'displayModuleOn': 'small',
+                            'image': {
+                                'customImage': {
+                                    'small': '',
+                                    'large': ''
+                                },
+                                'link': '/fun/games-puzzles/games-puzzles',
+                                'description': 'Tabletop_Cornhole'
+                            },
+                            'cta': {
+                                'text': 'gamers',
+                                'link': '/fun/games-puzzles/games-puzzles',
+                                'description': 'gamers'
                             }
                         }
                     ]
@@ -627,7 +627,7 @@ export class HpService {
                             },
                             'image': {
                                 'customImage': {
-                                    'small': 'https://www.uncommongoods.com/images/hp/B/E1_ES_20171113_640px.jpg',
+                                    'small': 'https://www.uncommongoods.com/images/hp/B/E1_ES_20171113_640px.gif',
                                     'large': 'https://www.uncommongoods.com/images/hp/B/E1_ES_20171113_1200px.gif'
                                 },
                                 'link': '/sunny/giftfinder/intro',
@@ -636,7 +636,7 @@ export class HpService {
                             'headline': {
                                 'text': 'Find a Gift They\'ll Love',
                                 'link': '/sunny/giftfinder/intro',
-                                'description': 'Find_gift_they\'ll_love'
+                                'description': 'Find_a_Gift_They\'ll_Love'
                             },
                             'copy': {
                                 'text': 'Meet Sunny, our expert gift finder here to make your search for a unique gift easy as peanut pie.',
@@ -656,7 +656,7 @@ export class HpService {
                 'small-feature-module': {
                     'sections': [
                         {
-                            'item': '',
+                            'item': 40547,
                             'displayModuleOn': 'small',
                             'section': {
                                 'text': '',
@@ -665,25 +665,25 @@ export class HpService {
                             },
                             'image': {
                                 'customImage': {
-                                    'small': 'https://www.uncommongoods.com/images/hp/B/I1_SF_20171204_360px.jpg',
-                                    'large': 'https://www.uncommongoods.com/images/hp/B/I1_SF_20171204_640px.jpg'
+                                    'small': 'https://www.uncommongoods.com/images/hp/B/I1_SF_20171211_360px.gif',
+                                    'large': 'https://www.uncommongoods.com/images/hp/B/I1_SF_20171211_640px.gif'
                                 },
-                                'link': 'http://blog.uncommongoods.com/2017/make-gift-baskets/',
-                                'description': 'Taco_Gift_Basket'
+                                'link': 'http://blog.uncommongoods.com/2017/best-bets-for-book-lovers/?source=blog_gglist17',
+                                'description': 'Banned_Books_Morph_Mug'
                             },
                             'headline': {
-                                'text': 'Gift Guide: 11 Creative Combos for \nDIY Gift Baskets',
-                                'link': 'http://blog.uncommongoods.com/2017/make-gift-baskets/',
-                                'description': 'gift_basket_guide_blog'
+                                'text': 'Best Bets for Literary Lovers',
+                                'link': 'http://blog.uncommongoods.com/2017/best-bets-for-book-lovers/?source=blog_gglist17',
+                                'description': 'Best_Bets_for_Literary_Lovers'
                             },
                             'cta': {
                                 'text': 'see our ideas',
-                                'link': 'http://blog.uncommongoods.com/2017/make-gift-baskets/',
+                                'link': 'http://blog.uncommongoods.com/2017/best-bets-for-book-lovers/?source=blog_gglist17',
                                 'description': 'see_our_ideas'
                             }
                         },
                         {
-                            'item': 23847,
+                            'item': 26314,
                             'displayModuleOn': 'small',
                             'section': {
                                 'text': '',
@@ -692,25 +692,25 @@ export class HpService {
                             },
                             'image': {
                                 'customImage': {
-                                    'small': '',
-                                    'large': ''
+                                    'small': 'https://www.uncommongoods.com/images/hp/B/I2_SF_20171211_360px.jpg',
+                                    'large': 'https://www.uncommongoods.com/images/hp/B/I2_SF_20171211_640px.jpg'
                                 },
-                                'link': 'http://blog.uncommongoods.com/2017/facts-about-unicorns/',
-                                'description': 'unicorn_blog'
+                                'link': 'http://blog.uncommongoods.com/2017/from-beer-to-booze-gift-picks-for-the-home-bartender/',
+                                'description': 'Old_Fashioned_Carry-On_Cocktail_Kit'
                             },
                             'headline': {
-                                'text': '37 Enchantingly Uncommon Facts about Unicorns',
-                                'link': 'http://blog.uncommongoods.com/2017/facts-about-unicorns/',
-                                'description': 'unicorn_headline'
+                                'text': 'Gift Picks for the Home Bartender',
+                                'link': 'http://blog.uncommongoods.com/2017/from-beer-to-booze-gift-picks-for-the-home-bartender/',
+                                'description': 'Gift_Picks_for_the_Home_Bartender'
                             },
                             'cta': {
-                                'text': 'magic this way',
-                                'link': 'http://blog.uncommongoods.com/2017/facts-about-unicorns/',
-                                'description': 'magic_this_way'
+                                'text': 'browse our round-up',
+                                'link': 'http://blog.uncommongoods.com/2017/from-beer-to-booze-gift-picks-for-the-home-bartender/',
+                                'description': 'browse_our_round-up'
                             }
                         },
                         {
-                            'item': 42179,
+                            'item': 45070,
                             'displayModuleOn': 'small',
                             'section': {
                                 'text': '',
@@ -719,21 +719,21 @@ export class HpService {
                             },
                             'image': {
                                 'customImage': {
-                                    'small': 'https://www.uncommongoods.com/images/hp/B/I3_SF_20171204_360px.jpg',
-                                    'large': 'https://www.uncommongoods.com/images/hp/B/I3_SF_20171204_640px.jpg'
+                                    'small': 'https://www.uncommongoods.com/images/hp/B/I3_SF_20171211_360px.jpg',
+                                    'large': 'https://www.uncommongoods.com/images/hp/B/I3_SF_20171211_640px.jpg'
                                 },
-                                'link': 'http://blog.uncommongoods.com/2017/gift-lab-portable-camp-grill-and-charger/',
-                                'description': 'Portable_Camp_Grill_and_Charger_blog'
+                                'link': 'http://blog.uncommongoods.com/2017/geek-gifts-space/?source=blog_gglist17',
+                                'description': 'Astronaut_Duvet_and_Pillowcase_Set'
                             },
                             'headline': {
-                                'text': 'Gift Lab: How to be a Happy Camper with Our Portable Grill & Charger',
-                                'link': 'http://blog.uncommongoods.com/2017/gift-lab-portable-camp-grill-and-charger/',
-                                'description': 'gift_lab_happy_camper'
+                                'text': 'Gifts for Your Favorite Space Geek',
+                                'link': 'http://blog.uncommongoods.com/2017/geek-gifts-space/?source=blog_gglist17',
+                                'description': 'Gifts_for_Your_Favorite_Space_Geek'
                             },
                             'cta': {
-                                'text': 'find out on the blog',
-                                'link': 'http://blog.uncommongoods.com/2017/gift-lab-portable-camp-grill-and-charger/',
-                                'description': 'find_out_on_the_blog'
+                                'text': 'discover them all',
+                                'link': 'http://blog.uncommongoods.com/2017/geek-gifts-space/?source=blog_gglist17',
+                                'description': 'discover_them_all'
                             }
                         }
                     ]
@@ -771,8 +771,10 @@ export class HpService {
     productImgPath(itemId) {
       const itemDir = 'https://www.uncommongoods.com/images/items/';
       const itemIdTrim = itemId.toString().slice(0, -2);
-      // tslint:disable-next-line:max-line-length
-      return itemDir + itemIdTrim + '00/' + itemId + '_1_180px.jpg 180w, ' + itemDir + itemIdTrim + '00/' + itemId + '_1_360px.jpg 360w, ' + itemDir + itemIdTrim + '00/' + itemId + '_1_640px.jpg 640w, ' + itemDir + itemIdTrim + '00/' + itemId + '_1_1200px.jpg 1200w';
+      return itemDir + itemIdTrim + '00/' + itemId + '_1_180px.jpg 180w, '
+        + itemDir + itemIdTrim + '00/' + itemId + '_1_360px.jpg 360w, '
+        + itemDir + itemIdTrim + '00/' + itemId + '_1_640px.jpg 640w, '
+        + itemDir + itemIdTrim + '00/' + itemId + '_1_1200px.jpg 1200w';
     }
 
     productImgPathSrc(itemId: number, size: number) {
@@ -855,7 +857,7 @@ export class HpService {
                 '4': 'large-6 columns'
             }[nonHiddenModuleSections.length];
         } else {
-            sectionData.forEach((module,index) => {
+            sectionData.forEach((module, index) => {
                 if (module.displayModuleOn === 'small' || module.displayModuleOn === 'medium' ||
                     module.displayModuleOn === 'large' || module.displayModuleOn === 'xlarge') {
                     nonHiddenModuleSections.push(module.displayModuleOn);
@@ -867,5 +869,10 @@ export class HpService {
                 '4': 'large-6 columns'
             }[nonHiddenModuleSections.length];
         }
+    }
+
+    hpTracking() {
+        const alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        console.log('alpha ', alpha);
     }
 }

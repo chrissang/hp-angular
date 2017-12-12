@@ -1,9 +1,8 @@
 <main style="min-height:100vh">
   <div class="homePage-container">
       <ng-template ngFor let-data [ngForOf]="arrayOfData">
-        <p>{{data.module}}</p>
         <ng-container [ngSwitch]="data.module">
-
+          
           <app-large-feature-module *ngSwitchCase="'large-feature-module'"
             [componentData]="data.data"
             [viewPortSize]="viewPortSize">
@@ -18,6 +17,31 @@
             [componentData]="data.data"
             [viewPortSize]="viewPortSize">
           </app-small-feature-module>
+
+          <app-collection-grid-module *ngSwitchCase="'collection-grid-module'"
+            [componentData]="data.data"
+            [viewPortSize]="viewPortSize">
+          </app-collection-grid-module>
+
+          <app-extended-story-module *ngSwitchCase="'extended-story-module'"
+            [componentData]="data.data"
+            [viewPortSize]="viewPortSize">
+          </app-extended-story-module>
+
+          <app-text-link-module *ngSwitchCase="'text-link-module'"
+            [componentData]="data.data"
+            [viewPortSize]="viewPortSize">
+          </app-text-link-module>
+
+          <app-button-link-double-module *ngSwitchCase="'button-link-double-module'"
+            [componentData]="data.data"
+            [viewPortSize]="viewPortSize">
+          </app-button-link-double-module>
+          
+          <app-image-link-double-module *ngSwitchCase="'image-link-double-module'"
+            [componentData]="data.data"
+            [viewPortSize]="viewPortSize">
+          </app-image-link-double-module>
 
         </ng-container>
       </ng-template>

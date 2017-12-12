@@ -1,14 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { HpService } from '../hp.service';
 
 @Component({
   selector: 'app-image-link-double-module',
   templateUrl: '../hpTemplateComponents/image-link-double-module.component.html'
 })
 export class ImageLinkDoubleModuleComponent implements OnInit {
+  @Input() componentData: any;
+  @Input() viewPortSize: string;
+  displayGroupViewPortSize: string;
+  section: object;
+  imageLinkDoubleModuleSections: any[];
 
-  constructor() { }
+  constructor(private hpService: HpService) {}
 
   ngOnInit() {
+    this.displayGroupViewPortSize = this.hpService.displayGroup(this.componentData.sections);
+    this.section = this.componentData.section;
+    this.imageLinkDoubleModuleSections = this.componentData.sections;
   }
-
 }

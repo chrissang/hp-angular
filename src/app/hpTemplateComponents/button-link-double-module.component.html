@@ -1,3 +1,45 @@
-<section>
-  <h1>button-link-double-module</h1>
+<section *ngIf="hpService.displayOn(displayGroupViewPortSize, viewPortSize)" class="button-link-double-module background-color-white" data-module-type="BD">
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="row collapse">
+                <div class="small-8 medium-10 large-8 small-centered columns">
+                    <hr class="dottedSpacer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="section.text" class="row">
+        <div class="small-12 small-centered text-center columns">
+            <h2>
+                <a class="a-secondary" [href]="section.link" [attr.data-description]="section.description" [attr.data-sectionDescription]="section.description" data-type="Section">{{ section.text }}</a>
+            </h2>
+        </div>
+    </div>
+
+    <div *ngIf="!shouldStack()" class="row fullwidth">
+        <div class="small-12 large-11 xlarge-10 xxlarge-8 large-centered columns">
+            <ng-template ngFor let-item [ngForOf]="buttonLinkDoubleModuleSections">
+                <div *ngIf="hpService.displayOn(item.displayModuleOn,viewPortSize)" [ngClass]="hpService.classNameBlockGrid(buttonLinkDoubleModuleSections,viewPortSize) + ' productContainer'">
+                    <div class="responsively-lazy preventReflow">
+                        <a [href]="item.image.link" [attr.data-description]="item.image.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="section.description" data-type="Image">
+                            <img [src]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPathSrc(item.item,640)" [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [alt]="item.cta.text"/>
+                        </a>
+
+                        <div *ngIf="showBtnContainerInside()" class="btnContainerInside">
+                            <a [href]="item.cta.link" [attr.data-description]="item.cta.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="section.description" data-type="CTA">
+                                <button class="btn-secondary expand">{{ item.cta.text }}</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div *ngIf="showBtnContainerHanging()" class="btnContainerHanging">
+                        <a [href]="item.cta.link" [attr.data-description]="item.cta.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="section.description" data-type="CTA">
+                            <button class="btn-secondary expand">{{ item.cta.text }}</button>
+                        </a>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
 </section>

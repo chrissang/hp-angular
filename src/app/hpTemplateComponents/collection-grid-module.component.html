@@ -1,3 +1,89 @@
-<section>
-  <h1>collection-grid-module</h1>
+<section *ngIf="hpService.displayOn(displayGroupViewPortSize, viewPortSize)" class="collection-grid-module background-color-off-white" data-module-type="CG">
+  <div class="row fullwidth">
+    <div class="small-12 large-11 xlarge-10 xxlarge-8 large-centered columns">
+        <div class="row container">
+            <div class="small-12 medium-6 columns">
+                <div class="flex">
+                    <div class="small-8-width">
+                        <a [href]="arrayContent1.image.link" [attr.data-description]="arrayContent1.image.description" [attr.data-itemNumber]="arrayContent1.item" [attr.data-cta]="cta.text" [attr.data-sectionDescription]="section.description" data-type="Image">
+                            <div class="responsively-lazy preventReflow">
+                                <img [srcset]="hpService.responsiveImage(arrayContent1.item, arrayContent1.image.customImage.large, arrayContent1.image.customImage.small)" [src]="arrayContent1.image.customImage.large ? arrayContent1.image.customImage.large : hpService.productImgPathSrc(arrayContent1.item,360)" [alt]="cta.text"/>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="small-4-width">
+                        <div>
+                            <a [href]="arrayContent2.image.link" [attr.data-description]="arrayContent2.image.description" [attr.data-itemNumber]="arrayContent2.item" [attr.data-cta]="cta.text" [attr.data-sectionDescription]="section.description" data-type="Image">
+                                <div class="responsively-lazy preventReflow">
+                                    <img [srcset]="hpService.responsiveImage(arrayContent2.item, arrayContent2.image.customImage.large, arrayContent2.image.customImage.small)" [src]="arrayContent2.image.customImage.large ? arrayContent2.image.customImage.large : hpService.productImgPathSrc(arrayContent2.item,360)" [alt]="cta.text"/>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a [href]="arrayContent3.image.link" [attr.data-description]="arrayContent3.image.description" [attr.data-itemNumber]="arrayContent3.item" [attr.data-cta]="cta.text" [attr.data-sectionDescription]="section.description" data-type="Image">
+                                <div class="responsively-lazy preventReflow">
+                                    <img [srcset]="hpService.responsiveImage(arrayContent3.item, arrayContent3.image.customImage.large, arrayContent3.image.customImage.small)" [src]="arrayContent3.image.customImage.large ? arrayContent3.image.customImage.large : hpService.productImgPathSrc(arrayContent3.item,360)" [alt]="cta.text"/>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="viewPortSize === 'small'" class="small-12 text-center columns white-box-container">
+                <label *ngIf="section.text" class="body-small-caps-override">
+                    <a class="a-secondary" [href]="section.link" [attr.data-description]="section.description" [attr.data-cta]="cta.text" [attr.data-sectionDescription]="section.description" data-type="Section">{{ section.text }}</a>
+                </label>
+
+                <a class="a-secondary" [href]="headline.link" [attr.data-description]="headline.description" [attr.data-cta]="cta.text" [attr.data-sectionDescription]="section.description" data-type="Headline"><h3>{{ headline.tex }}</h3></a>
+
+                <p class="body-small-override"><a v-bind:href="cta.link" v-bind:data-description="cta.description" v-bind:data-cta="cta.text" v-bind:data-sectionDescription="section.description" data-type="CTA">{{ cta.text }}</a></p>
+            </div>
+
+            <div class="small-12 medium-6 columns">
+                <div class="flex">
+                    <div class="small-8-width">
+                        <a [href]="arrayContent4.image.link" [attr.data-description]="arrayContent4.image.description" [attr.data-itemNumber]="arrayContent4.item" [attr.data-cta]="cta.text" [attr.data-sectionDescription]="section.description" data-type="Image">
+                            <div class="responsively-lazy preventReflow">
+                                <img [srcset]="hpService.responsiveImage(arrayContent4.item, arrayContent4.image.customImage.large, arrayContent4.image.customImage.small)" [src]="arrayContent4.image.customImage.large ? arrayContent4.image.customImage.large : hpService.productImgPathSrc(arrayContent4.item,360)" [alt]="cta.text"/>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="small-4-width">
+                        <div>
+                            <a [href]="arrayContent5.image.link" [attr.data-description]="arrayContent5.image.description" [attr.data-itemNumber]="arrayContent5.item" [attr.data-cta]="cta.text" [attr.data-sectionDescription]="section.description" data-type="Image">
+                                <div class="responsively-lazy preventReflow">
+                                    <img [srcset]="hpService.responsiveImage(arrayContent5.item, arrayContent5.image.customImage.large, arrayContent5.image.customImage.small)" [src]="arrayContent5.image.customImage.large ? arrayContent5.image.customImage.large : hpService.productImgPathSrc(arrayContent5.item,360)" [alt]="cta.text"/>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a [href]="arrayContent6.image.link" [attr.data-description]="arrayContent6.image.description" [attr.data-itemNumber]="arrayContent6.item" [attr.data-cta]="cta.text" [attr.data-sectionDescription]="section.description" data-type="Image">
+                                <div class="responsively-lazy preventReflow">
+                                    <img [srcset]="hpService.responsiveImage(arrayContent6.item, arrayContent6.image.customImage.large, arrayContent6.image.customImage.small)" [src]="arrayContent6.image.customImage.large ? arrayContent6.image.customImage.large : hpService.productImgPathSrc(arrayContent6.item,360)" [alt]="cta.text"/>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="viewPortSize != 'small'" class="small-12 columns">
+                <div class="row">
+                    <div class="medium-8 large-6 medium-centered columns">
+                        <div class="white-box-container text-center">
+                            <label *ngIf="section.text" class="body-small-caps-override">
+                              <a class="a-secondary" [href]="section.link" [attr.data-description]="section.description" [attr.data-cta]="cta.text" [attr.data-sectionDescription]="section.description" data-type="Section">
+                                {{ section.text }}
+                              </a>
+                            </label>
+                            <a [href]="headline.link" [attr.data-description]="headline.description" [attr.data-cta]="cta.text" [attr.data-sectionDescription]="section.description" data-type="Headline"><h1>{{ headline.text }}</h1></a>
+                            <p class="body-small-override"><a [href]="cta.link" [attr.data-description]="cta.description" [attr.data-cta]="cta.text" [attr.data-sectionDescription]="section.description" data-type="CTA">{{ cta.text }}</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
 </section>
