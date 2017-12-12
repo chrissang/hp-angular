@@ -1,0 +1,25 @@
+<main style="min-height:100vh">
+  <div class="homePage-container">
+      <ng-template ngFor let-data [ngForOf]="arrayOfData">
+        <p>{{data.module}}</p>
+        <ng-container [ngSwitch]="data.module">
+
+          <app-large-feature-module *ngSwitchCase="'large-feature-module'"
+            [componentData]="data.data"
+            [viewPortSize]="viewPortSize">
+          </app-large-feature-module>
+
+          <app-seo-link-module *ngSwitchCase="'seo-link-module'"
+            [componentData]="data.data"
+            [viewPortSize]="viewPortSize">
+          </app-seo-link-module>
+
+          <app-small-feature-module *ngSwitchCase="'small-feature-module'"
+            [componentData]="data.data"
+            [viewPortSize]="viewPortSize">
+          </app-small-feature-module>
+
+        </ng-container>
+      </ng-template>
+    </div>
+  </main>

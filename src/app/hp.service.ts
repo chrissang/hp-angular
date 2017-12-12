@@ -774,4 +774,98 @@ export class HpService {
       // tslint:disable-next-line:max-line-length
       return itemDir + itemIdTrim + '00/' + itemId + '_1_180px.jpg 180w, ' + itemDir + itemIdTrim + '00/' + itemId + '_1_360px.jpg 360w, ' + itemDir + itemIdTrim + '00/' + itemId + '_1_640px.jpg 640w, ' + itemDir + itemIdTrim + '00/' + itemId + '_1_1200px.jpg 1200w';
     }
+
+    productImgPathSrc(itemId: number, size: number) {
+        const itemDir = 'https://www.uncommongoods.com/images/items/';
+        const itemIdTrim = itemId.toString().slice(0, -2);
+
+        if (size === 180) {
+            return itemDir + itemIdTrim + '00/' + itemId + '_1_180px.jpg';
+        }
+        if (size === 360) {
+            return itemDir + itemIdTrim + '00/' + itemId + '_1_360px.jpg';
+        }
+        if (size === 640) {
+            return itemDir + itemIdTrim + '00/' + itemId + '_1_640px.jpg';
+        }
+        if (size === 1200) {
+            return itemDir + itemIdTrim + '00/' + itemId + '_1_1200px.jpg';
+        }
+    }
+
+    responsiveImage(itemId: number, largeImage: string, smallImage: string) {
+        let responsiveValue: string;
+        const largeImageSize = largeImage.split('_').pop().split('.')[0].slice(0, -2);
+        const smallImageSize = smallImage.split('_').pop().split('.')[0].slice(0, -2);
+        responsiveValue = smallImageSize ? smallImage + ' ' + smallImageSize + 'w, ' : '';
+        responsiveValue += largeImageSize ? largeImage + ' ' + largeImageSize + 'w' : '';
+        responsiveValue += smallImageSize === '' && largeImageSize === '' ? this.productImgPath(itemId) : '';
+        return responsiveValue;
+    }
+
+    classNameBlockGrid(sectionData, viewPortSize) {
+        const nonHiddenModuleSections = [];
+        if (viewPortSize === 'small') {
+            return 'small-6 columns';
+        } else if (viewPortSize === 'medium') {
+            sectionData.forEach((module, index) => {
+                if (module.displayModuleOn === 'small' || module.displayModuleOn === 'medium') {
+                    nonHiddenModuleSections.push(module.displayModuleOn);
+                }
+            });
+            return {
+                '4': 'medium-3 columns',
+                '6': 'medium-2 columns'
+            }[nonHiddenModuleSections.length];
+        } else if (viewPortSize === 'large') {
+            sectionData.forEach((module, index) => {
+                if (module.displayModuleOn === 'small' || module.displayModuleOn === 'medium' || module.displayModuleOn === 'large') {
+                    nonHiddenModuleSections.push(module.displayModuleOn);
+                }
+            });
+            return {
+                '4': 'large-3 columns',
+                '6': 'large-2 columns'
+            }[nonHiddenModuleSections.length];
+        } else {
+            sectionData.forEach((module, index) => {
+                if (module.displayModuleOn === 'small' || module.displayModuleOn === 'medium' ||
+                    module.displayModuleOn === 'large' || module.displayModuleOn === 'xlarge') {
+                    nonHiddenModuleSections.push(module.displayModuleOn);
+                }
+            });
+            return {
+                '4': 'medium-3 columns',
+                '6': 'medium-2 columns'
+            }[nonHiddenModuleSections.length];
+        }
+    }
+
+    className(sectionData, viewPortSize) {
+        const nonHiddenModuleSections = [];
+        if (viewPortSize === 'large') {
+            sectionData.forEach((module, index) => {
+                if (module.displayModuleOn === 'small' || module.displayModuleOn === 'medium' || module.displayModuleOn === 'large') {
+                    nonHiddenModuleSections.push(module.displayModuleOn);
+                }
+            });
+            return {
+                '2': 'large-6 columns',
+                '3': 'large-4 columns',
+                '4': 'large-6 columns'
+            }[nonHiddenModuleSections.length];
+        } else {
+            sectionData.forEach((module,index) => {
+                if (module.displayModuleOn === 'small' || module.displayModuleOn === 'medium' ||
+                    module.displayModuleOn === 'large' || module.displayModuleOn === 'xlarge') {
+                    nonHiddenModuleSections.push(module.displayModuleOn);
+                }
+            });
+            return {
+                '2': 'large-6 columns',
+                '3': 'large-4 columns',
+                '4': 'large-6 columns'
+            }[nonHiddenModuleSections.length];
+        }
+    }
 }

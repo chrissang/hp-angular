@@ -15,7 +15,6 @@ import { BasicStoryModuleComponent } from './hpComponents/basic-story-module.com
 import { TextLinkModuleComponent } from './hpComponents/text-link-module.component';
 import { ImageLinkDoubleModuleComponent } from './hpComponents/image-link-double-module.component';
 import { ButtonLinkDoubleModuleComponent } from './hpComponents/button-link-double-module.component';
-import { TestingComponent } from './testing/testing.component';
 
 
 @NgModule({
@@ -30,8 +29,7 @@ import { TestingComponent } from './testing/testing.component';
     BasicStoryModuleComponent,
     TextLinkModuleComponent,
     ImageLinkDoubleModuleComponent,
-    ButtonLinkDoubleModuleComponent,
-    TestingComponent
+    ButtonLinkDoubleModuleComponent
   ],
   entryComponents: [
     LargeFeatureModuleComponent,

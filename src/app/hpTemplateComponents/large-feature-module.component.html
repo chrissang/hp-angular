@@ -1,5 +1,38 @@
-<section>
-  <h1>Large Feature</h1>
-  <h1>{{ viewPortSize }}</h1>
+<section *ngIf="hpService.displayOn(displayGroupViewPortSize, viewPortSize)" class="large-feature-module background-color-off-white" data-module-type="LF">
+  <ng-template ngFor let-item [ngForOf]="componentData.sections">
+    <div *ngIf="hpService.displayOn(item.displayModuleOn, viewPortSize)" class="row fullwidth">
+        <div class="small-12 large-11 xlarge-10 xxlarge-8 large-centered columns">
+            <a [href]="item.image.link" [attr.data-description]="item.image.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" data-type="Image">
+                <picture>
+                    <!--[if IE 9]><video style="display: none;"><![endif]-->
+                        <source [srcset]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPath(item.item,640)"/>
+                        <source [srcset]="item.image.customImage.small ? item.image.customImage.small : hpService.productImgPath(item.item,360)"/>
+                    <!--[if IE 9]></video><![endif]-->
+
+                    <ng-template [ngIf]="viewPortSize === 'small'">
+                        <div class="responsively-lazy preventReflow">
+                            <img [src]="item.image.customImage.small ? item.image.customImage.small : productImgPath(item,360)" [alt]="item.cta.text">
+                        </div>
+                    </ng-template>
+
+                    <ng-template [ngIf]="viewPortSize != 'small'">
+                        <ng-template [ngIf]="isVideo(item.image.customImage.large)">
+                            <video loop muted autoplay [poster]="posterImage(item.image.customImage.large)">
+                                <source [src]="item.image.customImage.large" type="video/mp4">
+                                <source [src]="item.image.customImage.large" type="video/webm">
+                            </video>
+                        </ng-template>
+
+                        <ng-template [ngIf]="!isVideo(item.image.customImage.large)">
+                            <div class="responsively-lazy preventReflow">
+                                <div [ngStyle]="{'background-image': 'url(' + item.image.customImage.large + ')'}" class="LF_backgroundImage"></div>
+                            </div>
+                        </ng-template>
+                    </ng-template>
+                </picture>
+            </a>
+        </div>
+    </div>
+  </ng-template>
 </section>
 

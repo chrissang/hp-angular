@@ -13,12 +13,7 @@ import { ButtonLinkDoubleModuleComponent } from './button-link-double-module.com
 
 @Component({
   selector: 'app-hp-container',
-  template: `
-    <main style="min-height:100vh">
-      <ng-template ngFor let-data [ngForOf]="arrayOfData">
-        <ng-template data.module></ng-template>
-      </ng-template>
-    </main>`
+  templateUrl: '../hpTemplateComponents/hp-container.component.html'
 })
 
 export class HpContainerComponent implements OnInit, AfterContentInit {
@@ -31,52 +26,53 @@ export class HpContainerComponent implements OnInit, AfterContentInit {
   constructor(service: HpService, private resolver: ComponentFactoryResolver) {
     this.hpService = service;
     this.jsonData = this.hpService.getHpData();
-    this.arrayOfData = Object.keys(this.jsonData).map((key) => ({module: Object.keys(this.jsonData[key])[0], data: this.jsonData[key]}));
+    this.arrayOfData = Object.keys(this.jsonData).map((key) => ({
+      module: Object.keys(this.jsonData[key])[0],
+      data: this.jsonData[key][Object.keys(this.jsonData[key])[0]]
+    }));
   }
 
-  mapComponentName (componentName) {
-    switch (componentName) {
-      case 'large-feature-module':
-        return LargeFeatureModuleComponent;
-      case 'small-feature-module':
-        return SmallFeatureModuleComponent;
-      case 'seo-link-module':
-        return SeoLinkModuleComponent;
-      case 'collection-grid-module':
-        return CollectionGridModuleComponent;
-      case 'extended-story-module':
-        return ExtendedStoryModuleComponent;
-      case 'basic-story-module':
-        return BasicStoryModuleComponent;
-      case 'text-link-module':
-        return TextLinkModuleComponent;
-      case 'image-link-double-module':
-        return ImageLinkDoubleModuleComponent;
-      case 'button-link-double-module':
-        return ButtonLinkDoubleModuleComponent;
-    }
-  }
+  // mapComponentName (componentName) {
+  //   switch (componentName) {
+  //     case 'large-feature-module':
+  //       return LargeFeatureModuleComponent;
+  //     case 'small-feature-module':
+  //       return SmallFeatureModuleComponent;
+  //     case 'seo-link-module':
+  //       return SeoLinkModuleComponent;
+  //     case 'collection-grid-module':
+  //       return CollectionGridModuleComponent;
+  //     case 'extended-story-module':
+  //       return ExtendedStoryModuleComponent;
+  //     case 'basic-story-module':
+  //       return BasicStoryModuleComponent;
+  //     case 'text-link-module':
+  //       return TextLinkModuleComponent;
+  //     case 'image-link-double-module':
+  //       return ImageLinkDoubleModuleComponent;
+  //     case 'button-link-double-module':
+  //       return ButtonLinkDoubleModuleComponent;
+  //   }
+  // }
 
   ngOnInit() {
-    // window.addEventListener('resize', this.breakpointValue);
-    // this.breakpointValue();
+    const size = window.getComputedStyle(document.querySelector('body'),
+    ':before').getPropertyValue('content').replace(/\"/g, '');
+   this.viewPortSize = size;
   }
 
   ngAfterContentInit() {
     console.log('component data ', this.arrayOfData);
-    // window.addEventListener('resize', this.hpService.breakpointValue);
-    // this.hpService.breakpointValue();
+    this.hpService.onResize$.subscribe(size => {
+      this.viewPortSize = size;
+    });
     // Object.keys(this.jsonData).forEach((key) => {
     //   const componentName = this.mapComponentName(Object.keys(this.jsonData[key])[0]);
     //   const componentData = this.jsonData[key][Object.keys(this.jsonData[key])[0]];
     //   const addCompnent = this.resolver.resolveComponentFactory(componentName);
     //   const compnentRef = this.hpModuleContainer.createComponent(addCompnent);
     //   compnentRef.instance.componentData = componentData;
-    //   compnentRef.instance.viewPort = this.hpService.viewPort;
-    //   this.hpService.onResize$.subscribe(size => {
-    //     console.log('asadsa ', size);
-    //     this.viewPortSize = size;
-    //   });
+    //   compnentRef.instance.viewPort = this.viewPortSize;
     // });
   }
 }

@@ -1,3 +1,108 @@
-<section>
-  <h1>seo-link-module</h1>
+<section *ngIf="hpService.displayOn(displayGroupViewPortSize, viewPortSize)" class="seoLinks text-link-module background-color-off-white" data-module-type="TL_SEO">
+  <ng-template [ngIf]="viewPortSize === 'small'">
+      <div class="row">
+          <div class="small-12 small-centered columns container">
+              <div *ngIf="seo1.section.text" class="row">
+                  <div class="small-12 text-center columns">
+                      <h2>
+                          <a class="a-secondary" [href]="seo1.section.link" [attr.data-description]="seo1.section.description" [attr.data-sectionDescription]="seo1.section.description" [attr.data-type]="Section">{{ seo1.section.text }}</a>
+                      </h2>
+                  </div>
+              </div>
+              <div class="row">
+                  <ng-template ngFor let-item [ngForOf]="seo1Sections">
+                      <div class="small-6 columns">
+                          <div class="text-link-container">
+                              <div class="content">
+                                  <h4>
+                                    <a class="a-secondary" [href]="item.cta.link" [attr.data-description]="item.cta.description" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="seo1.section.description" [attr.data-type]="CTA">{{ item.cta.text }}</a>
+                                  </h4>
+                              </div>
+                          </div>
+                      </div>
+                  </ng-template>
+              </div>
+          </div>
+      </div>
+
+      <div class="seoLinks2 image-link-double-module background-color-off-white">
+          <div class="row container">
+              <div class="small-12 small-centered columns">
+                  <div *ngIf="seo2.section.text" class="row">
+                      <div class="small-12 xlarge-10 text-center xlarge-centered columns">
+                          <h2>
+                              <a class="a-secondary" [href]="seo2.section.link" [attr.data-description]="seo2.section.description" [attr.data-sectionDescription]="seo2.section.description" [attr.data-type]="Section">{{ seo2.section.text }}</a>
+                          </h2>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="small-11 small-centered columns">
+                  <div class="row">
+                      <ng-template ngFor let-item [ngForOf]="seo2Sections">
+                          <div [ngClass]="hpService.classNameBlockGrid(seo2Sections, viewPortSize) + ' productContainer text-center content'">
+                              <div class="responsively-lazy preventReflow">
+                                  <a [href]="item.image.link" [attr.data-description]="item.image.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="seo2.section.description" data-type="Image">
+                                      <img [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [src]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPathSrc(item.item, 640)" [alt]="item.cta.text"/>
+                                  </a>
+                              </div>
+                              <h4>
+                                <a class="a-secondary" [href]="item.cta.link" [attr.data-description]="item.cta.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="seo2.section.description" data-type="CTA">{{ item.cta.text }}</a>
+                              </h4>
+                          </div>
+                      </ng-template>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </ng-template>
+  <ng-template [ngIf]="viewPortSize != 'small'">
+      <div class="row fullwidth seo1LinksContainer">
+          <div class="small-12 columns">
+              <div class="row topSpacer">
+                  <div class="small-12 columns">
+                      <div class="row collapse">
+                          <div class="small-6 medium-10 large-8 small-centered columns" style="width: 372px;">
+                              <hr class="dottedSpacer">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="small-12 text-center columns">
+                      <div>
+                          <div class="topCatContent">
+                              <span>{{ seo1.section.text }}</span>
+                              <div class="displayInline">
+                                  <ng-template ngFor let-item [ngForOf]="seo1Sections">
+                                      <a [href]="item.cta.link" [attr.data-description]="item.cta.description" [attr.data-sectionDescription]="seo1.section.description" [attr.data-cta]="item.cta.text" data-type="CTA" class="body-small-crumbs">{{ item.cta.text }}</a>
+                                  </ng-template>
+                              </div>
+                          </div>
+
+                          <div>
+                              <span>{{ seo2.section.text }}</span>
+                              <div class="displayInline">
+                                  <ng-template ngFor let-item [ngForOf]="seo2Sections">
+                                      <a [href]="item.cta.link" [attr.data-description]="item.cta.description" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="seo2.section.description" data-type="CTA" class="body-small-crumbs">{{ item.cta.text }}</a>
+                                  </ng-template>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row bottomSpacer">
+                  <div class="small-12 columns">
+                      <div class="row collapse">
+                          <div class="small-6 medium-10 large-8 small-centered columns" style="width: 372px;">
+                              <hr class="dottedSpacer">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </ng-template>
 </section>

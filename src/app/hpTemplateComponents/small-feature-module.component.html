@@ -1,5 +1,106 @@
-<section>
-  <h1>Small Feature</h1>
+<section *ngIf="hpService.displayOn(displayGroupViewPortSize, viewPortSize)" class="small-feature-module background-color-white" data-module-type="SF">
+	<ng-template [ngIf]="viewPortSize === 'small' || viewPortSize === 'medium'">
+		<ng-template ngFor let-item [ngForOf]="smModulesSections" let-i="index" let-even="even" let-odd="odd">
+			<ng-template [ngIf]="hpService.displayOn(item.displayModuleOn, viewPortSize)">
+				<ng-template [ngIf]="even">
+					<div class="row fullwidth">
+						<div class="container">
+							<div class="small-6 medium-7 columns">
+								<div [ngStyle]="{ margin: viewportSize === 'medium' ? '-1.5rem 0 0 -1.5rem' : '0' }">
+									<a [href]="item.image.link" [attr.data-description]="item.image.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="item.section.description" data-type="Image">
+										<div class="responsively-lazy preventReflow">
+											<img class="right" [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [src]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPathSrc(item.item,360)" [alt]="item.cta.text"/>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="small-6 medium-5 columns text-center">
+								<div class="copyContainer">
+									<label *ngIf="item.section.text" class="body-small-caps-override">
+										<a class="a-secondary" [href]="item.section.link" [attr.data-description]="item.section.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="item.section.description" data-type="Section">{{ item.section.text }}</a>
+									</label>
+
+									<a [href]="item.headline.link" [attr.data-description]="item.headline.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="item.section.descriptio" data-type="Headline">
+										<h3 v-html="item.headline.text"></h3>
+									</a>
+
+									<p class="body-small-override">
+										<a [href]="item.cta.link" [attr.data-description]="item.cta.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" data-type="CTA">{{ item.cta.text }}</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</ng-template>
+	
+				<ng-template [ngIf]="odd">
+					<div class="row fullwidth">
+						<div class="container">
+							<div class="small-6 medium-5 columns text-center">
+								<div class="copyContainer">
+									<label *ngIf="item.section.text" class="body-small-caps-override">
+										<a class="a-secondary" [href]="item.section.link" [attr.data-description]="item.section.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="item.section.description" data-type="Section">{{ item.section.text }}</a>
+									</label>
+
+									<a [href]="item.headline.link" [attr.data-description]="item.headline.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="item.section.descriptio" data-type="Headline">
+										<h3>{{ item.headline.text }}</h3>
+									</a>
+
+									<p class="body-small-override">
+										<a [href]="item.cta.link" [attr.data-description]="item.cta.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" data-type="CTA">{{ item.cta.text }}</a>
+									</p>
+								</div>
+							</div>
+							<div class="small-6 medium-7 columns">
+								<div [ngStyle]="{ margin: viewportSize === 'medium' ? '-1.5rem 0 0 -1.5rem' : '0' }">
+									<a [href]="item.image.link" [attr.data-description]="item.image.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="item.section.description" data-type="Image">
+										<div class="responsively-lazy preventReflow">
+											<img class="right" [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [src]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPathSrc(item.item,360)" [alt]="item.cta.text"/>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</ng-template>
+			</ng-template>
+		</ng-template>
+	</ng-template>
+
+	<ng-template [ngIf]="viewPortSize === 'large' || viewPortSize === 'xlarge'">
+		<div class="row fullwidth">
+			<div class="large-11 xlarge-10 xxlarge-8 large-centered columns">
+				<div class="row fullwidth">
+					<ng-template ngFor let-item [ngForOf]="smModulesSections">
+						<ng-template [ngIf]="hpService.displayOn(item.displayModuleOn, viewPortSize)">
+							<div [ngClass]="hpService.className(smModulesSections,viewPortSize)">
+								<a [href]="item.image.link" [attr.data-description]="item.image.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="item.section.description" data-type="Image">
+									<div class="responsively-lazy preventReflow">
+										<img class="right" [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [src]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPathSrc(item.item,360)" [alt]="item.cta.text"/>
+									</div>
+								</a>
+								<div class="row">
+									<div class="large-12 large-centered columns">
+										<div class="white-box-container text-center">
+											<label *ngIf="item.section.text" class="body-small-caps-override">
+												<a class="a-secondary" [href]="item.section.link" [attr.data-description]="item.section.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="item.section.description" data-type="Section">{{ item.section.text }}</a>
+											</label>
+											<a [href]="item.headline.link" [attr.data-description]="item.headline.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="item.section.description" data-type="Headline">
+												<h2>{{ item.headline.text }}</h2>
+											</a>
+											<p class="body-small-override">
+												<a [href]="item.cta.link" [attr.data-description]="item.cta.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="item.section.description" data-type="CTA">{{ item.cta.text }}</a>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</ng-template>
+					</ng-template>
+				</div>
+			</div>
+		</div>
+	</ng-template>
 </section>
 
 
