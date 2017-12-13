@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HpService } from '../hp.service';
 
 @Component({
-  selector: 'app-extended-story-module',
+  selector: 'app-hp-extended-story-module',
   templateUrl: '../hpTemplateComponents/extended-story-module.component.html'
 })
 export class ExtendedStoryModuleComponent implements OnInit {

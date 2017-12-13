@@ -1,4 +1,4 @@
-<section *ngIf="hpService.displayOn(displayGroupViewPortSize, viewPortSize)" class="small-feature-module background-color-white" data-module-type="SF">
+<div>
 	<ng-template [ngIf]="viewPortSize === 'small' || viewPortSize === 'medium'">
 		<ng-template ngFor let-item [ngForOf]="smModulesSections" let-i="index" let-even="even" let-odd="odd">
 			<ng-template [ngIf]="hpService.displayOn(item.displayModuleOn, viewPortSize)">
@@ -6,7 +6,7 @@
 					<div class="row fullwidth">
 						<div class="container">
 							<div class="small-6 medium-7 columns">
-								<div [ngStyle]="{ margin: viewportSize === 'medium' ? '-1.5rem 0 0 -1.5rem' : '0' }">
+								<div [ngStyle]="{ margin: viewPortSize === 'medium' ? '-1.5rem 0 0 -1.5rem' : '0' }">
 									<a [href]="item.image.link" [attr.data-description]="item.image.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="item.section.description" data-type="Image">
 										<div class="responsively-lazy preventReflow">
 											<img class="right" [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [src]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPathSrc(item.item,360)" [alt]="item.cta.text"/>
@@ -52,7 +52,7 @@
 								</div>
 							</div>
 							<div class="small-6 medium-7 columns">
-								<div [ngStyle]="{ margin: viewportSize === 'medium' ? '-1.5rem 0 0 -1.5rem' : '0' }">
+								<div [ngStyle]="{ margin: viewPortSize === 'medium' ? '-1.5rem 0 0 -1.5rem' : '0' }">
 									<a [href]="item.image.link" [attr.data-description]="item.image.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="item.section.description" data-type="Image">
 										<div class="responsively-lazy preventReflow">
 											<img class="right" [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [src]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPathSrc(item.item,360)" [alt]="item.cta.text"/>
@@ -101,7 +101,7 @@
 			</div>
 		</div>
 	</ng-template>
-</section>
+</div>
 
 
 

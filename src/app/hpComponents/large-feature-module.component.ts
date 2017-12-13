@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HpService } from '../hp.service';
 
 @Component({
-  selector: 'app-large-feature-module',
+  selector: 'app-hp-large-feature-module',
   templateUrl: '../hpTemplateComponents/large-feature-module.component.html'
 })
 export class LargeFeatureModuleComponent implements OnInit {

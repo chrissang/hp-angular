@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HpService } from '../hp.service';
 
 @Component({
-  selector: 'app-button-link-double-module',
+  selector: 'app-hp-button-link-double-module',
   templateUrl: '../hpTemplateComponents/button-link-double-module.component.html'
 })
 export class ButtonLinkDoubleModuleComponent implements OnInit {

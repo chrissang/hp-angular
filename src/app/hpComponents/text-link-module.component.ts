@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HpService } from '../hp.service';
 
 @Component({
-  selector: 'app-text-link-module',
+  selector: 'app-hp-text-link-module',
   templateUrl: '../hpTemplateComponents/text-link-module.component.html'
 })
 export class TextLinkModuleComponent implements OnInit {

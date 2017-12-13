@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HpService } from '../hp.service';
 
 @Component({
-  selector: 'app-basic-story-module',
+  selector: 'app-hp-basic-story-module',
   templateUrl: '../hpTemplateComponents/basic-story-module.component.html'
 })
 export class BasicStoryModuleComponent implements OnInit {

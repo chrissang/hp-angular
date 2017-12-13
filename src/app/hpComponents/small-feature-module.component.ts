@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HpService } from '../hp.service';
 
 @Component({
-  selector: 'app-small-feature-module',
+  selector: 'app-hp-small-feature-module',
   templateUrl: '../hpTemplateComponents/small-feature-module.component.html'
 })
 export class SmallFeatureModuleComponent implements OnInit {

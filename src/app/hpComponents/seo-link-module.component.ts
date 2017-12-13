@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HpService } from '../hp.service';
 
 @Component({
-  selector: 'app-seo-link-module',
+  selector: 'app-hp-seo-link-module',
   templateUrl: '../hpTemplateComponents/seo-link-module.component.html'
 })
 export class SeoLinkModuleComponent implements OnInit {

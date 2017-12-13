@@ -1,4 +1,4 @@
-<section *ngIf="hpService.displayOn(displayGroupViewPortSize, viewPortSize)" class="large-feature-module background-color-off-white" data-module-type="LF">
+<div>
   <ng-template ngFor let-item [ngForOf]="componentData.sections">
     <div *ngIf="hpService.displayOn(item.displayModuleOn, viewPortSize)" class="row fullwidth">
         <div class="small-12 large-11 xlarge-10 xxlarge-8 large-centered columns">
@@ -34,5 +34,5 @@
         </div>
     </div>
   </ng-template>
-</section>
+</div>
 

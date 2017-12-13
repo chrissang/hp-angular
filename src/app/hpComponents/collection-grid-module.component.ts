@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HpService } from '../hp.service';
 
 @Component({
-  selector: 'app-collection-grid-module',
+  selector: 'app-hp-collection-grid-module',
   templateUrl: '../hpTemplateComponents/collection-grid-module.component.html'
 })
 export class CollectionGridModuleComponent implements OnInit {

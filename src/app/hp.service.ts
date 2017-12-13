@@ -873,6 +873,6 @@ export class HpService {
 
     hpTracking() {
         const alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        console.log('alpha ', alpha);
+        // console.log('alpha ', alpha);
     }
 }

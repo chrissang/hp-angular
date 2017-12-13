@@ -67,7 +67,7 @@
                                 </div>
                             </div>
                             <div class="medium-7 large-8 columns">
-                                <div ng-style="margin: -1.5rem -1.5rem 0 0;">
+                                <div [ngStyle]="{ margin: '-1.5rem -1.5rem 0 0' }">
                                     <a [href]="item.image.link" [attr.data-description]="item.image.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="item.section.description" data-type="Image">
                                         <div class="responsively-lazy preventReflow">
                                             <img class="right" [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [src]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPathSrc(item.item,360)" [alt]="item.cta.text"/>
@@ -85,7 +85,7 @@
                     <div class="row">
                         <div class="container">
                             <div class="medium-7 large-8 columns">
-                                <div ng-style="margin: -1.5rem 0 0 -1.5rem;">
+                                <div [ngStyle]="{ margin: '-1.5rem 0 0 -1.5rem' }">
                                     <a [href]="item.image.link" [attr.data-description]="item.image.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="item.section.description" data-type="Image">
                                         <div class="responsively-lazy preventReflow">
                                             <img class="right" [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [src]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPathSrc(item.item,360)" [alt]="item.cta.text"/>
