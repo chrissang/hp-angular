@@ -9,7 +9,7 @@
 								<div [ngStyle]="{ margin: viewPortSize === 'medium' ? '-1.5rem 0 0 -1.5rem' : '0' }">
 									<a [href]="item.image.link" [attr.data-description]="item.image.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="item.section.description" data-type="Image">
 										<div class="responsively-lazy preventReflow">
-											<img class="right" [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [src]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPathSrc(item.item,360)" [alt]="item.cta.text"/>
+											<img class="right" [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [src]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPathSrc(item.item,360)" [alt]="item.cta.text" [sizes]="'(max-width: 768px), calc(70vw / 2)'"/>
 										</div>
 									</a>
 								</div>
@@ -55,7 +55,7 @@
 								<div [ngStyle]="{ margin: viewPortSize === 'medium' ? '-1.5rem 0 0 -1.5rem' : '0' }">
 									<a [href]="item.image.link" [attr.data-description]="item.image.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="item.section.description" data-type="Image">
 										<div class="responsively-lazy preventReflow">
-											<img class="right" [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [src]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPathSrc(item.item,360)" [alt]="item.cta.text"/>
+											<img class="right" [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [src]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPathSrc(item.item,360)" [alt]="item.cta.text" [sizes]="'(max-width: 768px), calc(70vw / 2)'"/>
 										</div>
 									</a>
 								</div>
@@ -76,7 +76,7 @@
 							<div [ngClass]="hpService.className(smModulesSections,viewPortSize)">
 								<a [href]="item.image.link" [attr.data-description]="item.image.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="item.section.description" data-type="Image">
 									<div class="responsively-lazy preventReflow">
-										<img class="right" [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [src]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPathSrc(item.item,360)" [alt]="item.cta.text"/>
+										<img class="right" [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [src]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPathSrc(item.item,360)" [alt]="item.cta.text" [sizes]="'(max-width: 768px), calc(70vw / 2)'"/>
 									</div>
 								</a>
 								<div class="row">

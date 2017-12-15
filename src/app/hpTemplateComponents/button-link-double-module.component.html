@@ -1,4 +1,4 @@
-<section *ngIf="hpService.displayOn(displayGroupViewPortSize, viewPortSize)" class="button-link-double-module background-color-white" data-module-type="BD">
+<div>
     <div class="row">
         <div class="small-12 columns">
             <div class="row collapse">
@@ -23,7 +23,7 @@
                 <div *ngIf="hpService.displayOn(item.displayModuleOn,viewPortSize)" [ngClass]="hpService.classNameBlockGrid(buttonLinkDoubleModuleSections,viewPortSize) + ' productContainer'">
                     <div class="responsively-lazy preventReflow">
                         <a [href]="item.image.link" [attr.data-description]="item.image.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="section.description" data-type="Image">
-                            <img [src]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPathSrc(item.item,640)" [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [alt]="item.cta.text"/>
+                            <img [src]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPathSrc(item.item,640)" [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [alt]="item.cta.text" [sizes]="'(max-width: 1024px), calc(70vw / ' + buttonLinkDoubleModuleSections.length + ')'"/>
                         </a>
 
                         <div *ngIf="showBtnContainerInside()" class="btnContainerInside">
@@ -42,4 +42,108 @@
             </ng-template>
         </div>
     </div>
-</section>
+
+    <div *ngIf="shouldStack()" class="row fullwidth">
+        <div class="row fullwidth collapse">
+            <div class="xlarge-10 xxlarge-8 xlarge-centered columns stackedMargin">
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <div class="row">
+                            <div class="xlarge-8 columns">
+                                <div class="responsively-lazy preventReflow">
+                                    <a [href]="arrayContent1.image.link" [attr.data-description]="arrayContent1.image.description" data-type="Image">
+                                        <img [src]="arrayContent1.image.customImage.large ? arrayContent1.image.customImage.large : hpService.productImgPathSrc(arrayContent1.item,360)" [srcset]="hpService.responsiveImage(arrayContent1.item, arrayContent1.image.customImage.large, arrayContent1.image.customImage.small)" [sizes]="'(max-width: 1024px), calc(70vw / ' + buttonLinkDoubleModuleSections.length + ')'"/>
+                                    </a>
+                                    <div class="btnContainerInside">
+                                        <a [href]="arrayContent1.cta.link" [attr.data-description]="arrayContent1.cta.description" data-type="CTA">
+                                            <button class="btn-secondary expand">{{ arrayContent1.cta.text }}</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="xlarge-4 columns">
+                                <div class="colBottomPadding">
+                                    <div class="responsively-lazy preventReflow">
+                                        <a [href]="arrayContent2.image.link" [attr.data-description]="arrayContent2.image.description" data-type="Image">
+                                            <img [src]="arrayContent2.image.customImage.large ? arrayContent2.image.customImage.large : hpService.productImgPathSrc(arrayContent2.item,360)" [srcset]="hpService.responsiveImage(arrayContent2.item, arrayContent2.image.customImage.large, arrayContent2.image.customImage.small)" [alt]="arrayContent2.cta.text" [sizes]="'(max-width: 1024px), calc(70vw / ' + buttonLinkDoubleModuleSections.length + ')'"/>
+                                        </a>
+                                        <div class="btnContainerInside">
+                                            <a [href]="arrayContent2.cta.link" [attr.data-description]="arrayContent2.cta.description" data-type="CTA">
+                                                <button class="btn-secondary expand">{{ arrayContent2.cta.text }}</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="responsively-lazy preventReflow">
+                                        <a [href]="arrayContent3.image.link" data-type="Image" [attr.data-description]="arrayContent3.image.description">
+                                            <img [src]="arrayContent3.image.customImage.large ? arrayContent3.image.customImage.large : hpService.productImgPathSrc(arrayContent3.item,360)" [srcset]="hpService.responsiveImage(arrayContent3.item, arrayContent3.image.customImage.large, arrayContent3.image.customImage.small)" [alt]="arrayContent3.cta.text" [sizes]="'(max-width: 1024px), calc(70vw / ' + buttonLinkDoubleModuleSections.length + ')'"/>
+                                        </a>
+                                        <div class="btnContainerInside">
+                                            <a [href]="arrayContent3.cta.link" data-type="CTA" [attr.data-description]="arrayContent3.cta.description">
+                                                <button class="btn-secondary expand">{{ arrayContent3.cta.text }}</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="small-12 medium-6 columns">
+                        <div class="row">
+                            <div class="xlarge-8 columns">
+                                <div class="responsively-lazy preventReflow">
+                                    <a [href]="arrayContent4.image.link" [attr.data-description]="arrayContent4.image.description" data-type="Image">
+                                        <img [src]="arrayContent4.image.customImage.large ? arrayContent4.image.customImage.large : hpService.productImgPath(arrayContent4.item,360)" [srcset]="hpService.responsiveImage(arrayContent4.item, arrayContent4.image.customImage.large, arrayContent4.image.customImage.small)" [alt]="arrayContent4.cta.text" [sizes]="'(max-width: 1024px), calc(70vw / ' + buttonLinkDoubleModuleSections.length + ')'"/>
+                                    </a>
+                                    <div class="btnContainerInside">
+                                        <a [href]="arrayContent4.cta.link" [attr.data-description]="arrayContent4.cta.description" data-type="CTA">
+                                            <button class="btn-secondary expand">{{ arrayContent4.cta.text }}</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="xlarge-4 columns">
+                                <div class="colBottomPadding">
+                                    <div class="responsively-lazy preventReflow">
+                                        <a [href]="arrayContent5.image.link" [attr.data-description]="arrayContent5.image.description" data-typ="Image">
+                                            <img [src]="arrayContent5.image.customImage.large ? arrayContent5.image.customImage.large : hpService.productImgPath(arrayContent5.item,360)" [srcset]="hpService.responsiveImage(arrayContent5.item, arrayContent5.image.customImage.large, arrayContent5.image.customImage.small)" [alt]="arrayContent5.cta.text" [sizes]="'(max-width: 1024px), calc(70vw / ' + buttonLinkDoubleModuleSections.length + ')'"/>
+                                        </a>
+                                        <div class="btnContainerInside">
+                                            <a [href]="arrayContent5.cta.link" [attr.data-description]="arrayContent5.cta.description" data-type="CTA">
+                                                <button class="btn-secondary expand">{{ arrayContent5.cta.text }}</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="responsively-lazy preventReflow">
+                                        <a [href]="arrayContent6.image.link" [attr.data-description]="arrayContent6.image.description" data-type="Image">
+                                            <img [src]="arrayContent6.image.customImage.large ? arrayContent6.image.customImage.large : hpService.productImgPath(arrayContent6.item,360)" [srcset]="hpService.responsiveImage(arrayContent6.item, arrayContent6.image.customImage.large, arrayContent6.image.customImage.small)" [alt]="arrayContent6.cta.text" [sizes]="'(max-width: 1024px), calc(70vw / ' + buttonLinkDoubleModuleSections.length + ')'"/>
+                                        </a>
+                                        <div class="btnContainerInside">
+                                            <a [href]="arrayContent3.cta.link" [attr.data-description]="arrayContent6.cta.description" data-type="CTA">
+                                                <button class="btn-secondary expand">{{ arrayContent6.cta.tex }}</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="row collapse">
+                <div class="small-8 medium-10 large-8 small-centered columns">
+                    <hr class="dottedSpacer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

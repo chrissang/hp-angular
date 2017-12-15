@@ -30,6 +30,20 @@
                         </ng-template>
                     </ng-template>
                 </picture>
+
+                <div class="row fullwidth">
+                    <div class="small-12 medium-8 large-6 small-centered columns">
+                        <div class="white-box-container text-center">
+                            <a class="a-secondary" [href]="item.headline.link" [attr.data-description]="item.headline.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" data-type="Headline">
+                                <h1>{{ item.headline.text }}</h1>
+                            </a>
+
+                            <p class="body-small-override">
+                                <a [href]="item.cta.link" [attr.data-description]="item.cta.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" data-type="CTA">{{ item.cta.text }}</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </a>
         </div>
     </div>

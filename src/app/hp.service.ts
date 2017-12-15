@@ -20,7 +20,6 @@ export class HpService {
         const size = window.getComputedStyle(document.querySelector('body'),
          ':before').getPropertyValue('content').replace(/\"/g, '');
         this.viewPort.next(size);
-        this.hpTracking();
     }
 
     getHpData() {
@@ -871,8 +870,63 @@ export class HpService {
         }
     }
 
-    hpTracking() {
+    hpTracking(hpModuleArry) {
         const alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        // console.log('alpha ', alpha);
+        const totalModules = hpModuleArry.length;
+        hpModuleArry.forEach((el: any, index: number) => {
+            const anchorTagsArry = el.querySelectorAll('a');
+            const alphaChar = alpha.charAt(index);
+            const moduleType = el.getAttribute('data-module-type');
+            anchorTagsArry.forEach((tag: any, i: number) => {
+                let trackingLink: string;
+                let linkNumber: number;
+                let dataType: string;
+                let dataDescription: string;
+                let trackingCode: string;
+                let ctaText: string;
+                let itemNumber: string;
+                let sectionDescription: string;
+                let id: string;
+                let name: string;
+                let creative: string;
+                let pos: string;
+
+                trackingLink = tag.getAttribute('href') ? tag.getAttribute('href') : '';
+                linkNumber = i + 1;
+                dataType = tag.getAttribute('data-type');
+                // tslint:disable-next-line:max-line-length
+                dataDescription = tag.getAttribute('data-description') ? '_' + tag.getAttribute('data-description').split(' ').join('_') : '';
+                trackingCode = 'hp_module_' + alphaChar + linkNumber + '_' + dataType + '_' + moduleType + dataDescription;
+                ctaText = tag.getAttribute('data-cta') ? tag.getAttribute('data-cta') : 'NA';
+                itemNumber = tag.getAttribute('data-itemNumber') ? tag.getAttribute('data-itemNumber') : 'NA';
+                sectionDescription = tag.getAttribute('data-sectionDescription') ? tag.getAttribute('data-sectionDescription') : 'NA';
+                id = alphaChar + linkNumber + '_' + moduleType;
+                // tslint:disable-next-line:max-line-length
+                name = ctaText.replace(/'/g, '') + '_' + trackingLink.replace(/\/\/www.uncommongoods.com/g, '').replace('//blog.uncommongoods.com', '/blog');
+                creative = itemNumber;
+                pos = sectionDescription;
+                trackingLink = trackingLink.replace(/\/\/www.uncommongoods.com/g, '');
+
+                if (trackingLink !== '' && moduleType !== 'TL_SEO') {
+                    if (trackingLink.includes('//blog.uncommongoods.com')) {
+                        trackingLink = trackingLink.replace('//blog.uncommongoods.com', '/blog');
+                        // tslint:disable-next-line:max-line-length
+                        tag.setAttribute('onclick', `javascript: pageTracker._trackPageview('/internal` + trackingLink + `?source=` + trackingCode + `');dataLayer.push({'internalHPModuleLinkUrl':'/internal` + trackingLink + `?source=` + trackingCode + `'},{'event':'fireGTMTrackHPModulePageView'});onPromoClick('` + id + `', '` + name + `', '` + creative + `', '` + pos + `')`);
+                    } else {
+                        // tslint:disable-next-line:max-line-length
+                        tag.setAttribute('onclick', `javascript: pageTracker._trackPageview('/internal` + trackingLink + `?source=` + trackingCode + `');dataLayer.push({'internalHPModuleLinkUrl':'/internal` + trackingLink + `?source=` + trackingCode + `'},{'event':'fireGTMTrackHPModulePageView'});onPromoClick('` + id + `', '` + name + `', '` + creative + `', '` + pos + `')`);
+                    }
+                } else if (trackingLink !== '' && moduleType === 'TL_SEO') {
+                    // tslint:disable-next-line:max-line-length
+                    tag.setAttribute('onclick', `javascript: pageTracker._trackPageview('/internal` + trackingLink + `?source=` + trackingCode + `');dataLayer.push({'internalHPModuleLinkUrl':'/internal` + trackingLink + `?source=` + trackingCode + `'},{'event':'fireGTMTrackHPModulePageView'});onPromoClick('` + id + `', '` + name + `', '` + creative + `', '` + pos + `')`);
+                } else {
+                    // tslint:disable-next-line:max-line-length
+                    tag.setAttribute('onclick', `javascript: pageTracker._trackPageview('/internal` + trackingLink + `?source=` + trackingCode + `');dataLayer.push({'internalHPModuleLinkUrl':'/internal` + trackingLink + `?source=` + trackingCode + `'},{'event':'fireGTMTrackHPModulePageView'});onPromoClick('` + id + `', '` + name + `', '` + creative + `', '` + pos + `')`);
+                    // $('a[href=""]').click(function (event) { // where href are blank
+                    //     event.preventDefault();
+                    // })
+                }
+            });
+        });
     }
 }

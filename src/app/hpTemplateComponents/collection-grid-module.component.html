@@ -1,4 +1,4 @@
-<section *ngIf="hpService.displayOn(displayGroupViewPortSize, viewPortSize)" class="collection-grid-module background-color-off-white" data-module-type="CG">
+<div>
   <div class="row fullwidth">
     <div class="small-12 large-11 xlarge-10 xxlarge-8 large-centered columns">
         <div class="row container">
@@ -7,7 +7,7 @@
                     <div class="small-8-width">
                         <a [href]="arrayContent1.image.link" [attr.data-description]="arrayContent1.image.description" [attr.data-itemNumber]="arrayContent1.item" [attr.data-cta]="cta.text" [attr.data-sectionDescription]="section.description" data-type="Image">
                             <div class="responsively-lazy preventReflow">
-                                <img [srcset]="hpService.responsiveImage(arrayContent1.item, arrayContent1.image.customImage.large, arrayContent1.image.customImage.small)" [src]="arrayContent1.image.customImage.large ? arrayContent1.image.customImage.large : hpService.productImgPathSrc(arrayContent1.item,360)" [alt]="cta.text"/>
+                                <img [srcset]="hpService.responsiveImage(arrayContent1.item, arrayContent1.image.customImage.large, arrayContent1.image.customImage.small)" [src]="arrayContent1.image.customImage.large ? arrayContent1.image.customImage.large : hpService.productImgPathSrc(arrayContent1.item,360)" [alt]="cta.text" [sizes]="'(max-width: 1024px), calc(70vw / 4)'"/>
                             </div>
                         </a>
                     </div>
@@ -15,14 +15,14 @@
                         <div>
                             <a [href]="arrayContent2.image.link" [attr.data-description]="arrayContent2.image.description" [attr.data-itemNumber]="arrayContent2.item" [attr.data-cta]="cta.text" [attr.data-sectionDescription]="section.description" data-type="Image">
                                 <div class="responsively-lazy preventReflow">
-                                    <img [srcset]="hpService.responsiveImage(arrayContent2.item, arrayContent2.image.customImage.large, arrayContent2.image.customImage.small)" [src]="arrayContent2.image.customImage.large ? arrayContent2.image.customImage.large : hpService.productImgPathSrc(arrayContent2.item,360)" [alt]="cta.text"/>
+                                    <img [srcset]="hpService.responsiveImage(arrayContent2.item, arrayContent2.image.customImage.large, arrayContent2.image.customImage.small)" [src]="arrayContent2.image.customImage.large ? arrayContent2.image.customImage.large : hpService.productImgPathSrc(arrayContent2.item,360)" [alt]="cta.text" [sizes]="'(max-width: 1024px), calc(70vw / 4)'"/>
                                 </div>
                             </a>
                         </div>
                         <div>
                             <a [href]="arrayContent3.image.link" [attr.data-description]="arrayContent3.image.description" [attr.data-itemNumber]="arrayContent3.item" [attr.data-cta]="cta.text" [attr.data-sectionDescription]="section.description" data-type="Image">
                                 <div class="responsively-lazy preventReflow">
-                                    <img [srcset]="hpService.responsiveImage(arrayContent3.item, arrayContent3.image.customImage.large, arrayContent3.image.customImage.small)" [src]="arrayContent3.image.customImage.large ? arrayContent3.image.customImage.large : hpService.productImgPathSrc(arrayContent3.item,360)" [alt]="cta.text"/>
+                                    <img [srcset]="hpService.responsiveImage(arrayContent3.item, arrayContent3.image.customImage.large, arrayContent3.image.customImage.small)" [src]="arrayContent3.image.customImage.large ? arrayContent3.image.customImage.large : hpService.productImgPathSrc(arrayContent3.item,360)" [alt]="cta.text" [sizes]="'(max-width: 1024px), calc(70vw / 4)'"/>
                                 </div>
                             </a>
                         </div>
@@ -45,7 +45,7 @@
                     <div class="small-8-width">
                         <a [href]="arrayContent4.image.link" [attr.data-description]="arrayContent4.image.description" [attr.data-itemNumber]="arrayContent4.item" [attr.data-cta]="cta.text" [attr.data-sectionDescription]="section.description" data-type="Image">
                             <div class="responsively-lazy preventReflow">
-                                <img [srcset]="hpService.responsiveImage(arrayContent4.item, arrayContent4.image.customImage.large, arrayContent4.image.customImage.small)" [src]="arrayContent4.image.customImage.large ? arrayContent4.image.customImage.large : hpService.productImgPathSrc(arrayContent4.item,360)" [alt]="cta.text"/>
+                                <img [srcset]="hpService.responsiveImage(arrayContent4.item, arrayContent4.image.customImage.large, arrayContent4.image.customImage.small)" [src]="arrayContent4.image.customImage.large ? arrayContent4.image.customImage.large : hpService.productImgPathSrc(arrayContent4.item,360)" [alt]="cta.text" [sizes]="'(max-width: 1024px), calc(70vw / 4)'"/>
                             </div>
                         </a>
                     </div>
@@ -53,14 +53,14 @@
                         <div>
                             <a [href]="arrayContent5.image.link" [attr.data-description]="arrayContent5.image.description" [attr.data-itemNumber]="arrayContent5.item" [attr.data-cta]="cta.text" [attr.data-sectionDescription]="section.description" data-type="Image">
                                 <div class="responsively-lazy preventReflow">
-                                    <img [srcset]="hpService.responsiveImage(arrayContent5.item, arrayContent5.image.customImage.large, arrayContent5.image.customImage.small)" [src]="arrayContent5.image.customImage.large ? arrayContent5.image.customImage.large : hpService.productImgPathSrc(arrayContent5.item,360)" [alt]="cta.text"/>
+                                    <img [srcset]="hpService.responsiveImage(arrayContent5.item, arrayContent5.image.customImage.large, arrayContent5.image.customImage.small)" [src]="arrayContent5.image.customImage.large ? arrayContent5.image.customImage.large : hpService.productImgPathSrc(arrayContent5.item,360)" [alt]="cta.text" [sizes]="'(max-width: 1024px), calc(70vw / 4)'"/>
                                 </div>
                             </a>
                         </div>
                         <div>
                             <a [href]="arrayContent6.image.link" [attr.data-description]="arrayContent6.image.description" [attr.data-itemNumber]="arrayContent6.item" [attr.data-cta]="cta.text" [attr.data-sectionDescription]="section.description" data-type="Image">
                                 <div class="responsively-lazy preventReflow">
-                                    <img [srcset]="hpService.responsiveImage(arrayContent6.item, arrayContent6.image.customImage.large, arrayContent6.image.customImage.small)" [src]="arrayContent6.image.customImage.large ? arrayContent6.image.customImage.large : hpService.productImgPathSrc(arrayContent6.item,360)" [alt]="cta.text"/>
+                                    <img [srcset]="hpService.responsiveImage(arrayContent6.item, arrayContent6.image.customImage.large, arrayContent6.image.customImage.small)" [src]="arrayContent6.image.customImage.large ? arrayContent6.image.customImage.large : hpService.productImgPathSrc(arrayContent6.item,360)" [alt]="cta.text" [sizes]="'(max-width: 1024px), calc(70vw / 4)'"/>
                                 </div>
                             </a>
                         </div>
@@ -86,4 +86,4 @@
         </div>
     </div>
   </div>
-</section>
+</div>

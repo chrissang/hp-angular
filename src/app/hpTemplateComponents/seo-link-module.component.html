@@ -43,7 +43,7 @@
                           <div [ngClass]="hpService.classNameBlockGrid(seo2Sections, viewPortSize) + ' productContainer text-center content'">
                               <div class="responsively-lazy preventReflow">
                                   <a [href]="item.image.link" [attr.data-description]="item.image.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="seo2.section.description" data-type="Image">
-                                      <img [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [src]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPathSrc(item.item, 640)" [alt]="item.cta.text"/>
+                                      <img [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [src]="item.image.customImage.large ? item.image.customImage.large : hpService.productImgPathSrc(item.item, 640)" [alt]="item.cta.text" [sizes]="'(max-width: 320px), 25vw'"/>
                                   </a>
                               </div>
                               <h4>

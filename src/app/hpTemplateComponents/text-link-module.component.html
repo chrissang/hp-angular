@@ -1,4 +1,4 @@
-<section *ngIf="hpService.displayOn(displayGroupViewPortSize, viewPortSize)" class="text-link-module background-color-off-white" data-module-type="TL">
+<div>
     <div class="row fullwidth waterColor">
         <div class="small-12 large-11 xlarge-10 xxlarge-8 small-centered columns container">
             <div v-if="section.text" class="row">
@@ -29,7 +29,7 @@
                         <div *ngIf="hpService.displayOn(item.displayModuleOn,viewPortSize)" [ngClass]="hpService.classNameBlockGrid(textLinkModuleSections,viewPortSize) + ' productContainer text-center content'">
                             <div class="responsively-lazy preventReflow">
                                 <a [href]="item.image.link" [attr.data-description]="item.image.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="section.description" data-type="Image">
-                                    <img [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [src]="item.image.customImage.large ? ugUrl + item.image.customImage.large : hpService.productImgPathSrc(item.item,640)" [alt]="item.cta.text"/>
+                                    <img [srcset]="hpService.responsiveImage(item.item, item.image.customImage.large, item.image.customImage.small)" [src]="item.image.customImage.large ? ugUrl + item.image.customImage.large : hpService.productImgPathSrc(item.item,640)" [alt]="item.cta.text" [sizes]="'(max-width: 1024px), calc(70vw / ' + textLinkModuleSections.length + ')'"/>
                                 </a>
                             </div>
                             <a class="a-secondary" [href]="item.cta.link" [attr.data-description]="item.cta.description" [attr.data-itemNumber]="item.item" [attr.data-cta]="item.cta.text" [attr.data-sectionDescription]="section.description" data-type="CTA">
@@ -41,4 +41,4 @@
             </div>
         </div>
     </div>
-</section>
+</div>
