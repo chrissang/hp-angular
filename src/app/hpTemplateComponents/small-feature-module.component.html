@@ -1,4 +1,4 @@
-<div>
+<section *ngIf="hpService.displayOn(displayGroupViewPortSize,viewPortSize)" class="small-feature-module">
 	<ng-template [ngIf]="viewPortSize === 'small' || viewPortSize === 'medium'">
 		<ng-template ngFor let-item [ngForOf]="smModulesSections" let-i="index" let-even="even" let-odd="odd">
 			<ng-template [ngIf]="hpService.displayOn(item.displayModuleOn, viewPortSize)">
@@ -101,7 +101,7 @@
 			</div>
 		</div>
 	</ng-template>
-</div>
+</section>
 
 
 

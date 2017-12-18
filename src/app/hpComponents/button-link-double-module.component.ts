@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostBinding } from '@angular/core';
 import { HpService } from '../hp.service';
 
 @Component({
@@ -6,6 +6,8 @@ import { HpService } from '../hp.service';
   templateUrl: '../hpTemplateComponents/button-link-double-module.component.html'
 })
 export class ButtonLinkDoubleModuleComponent implements OnInit {
+  @HostBinding('class.background-color-white')
+  @HostBinding('class.button-link-double-module')
   @Input() componentData: any;
   @Input() viewPortSize: string;
   displayGroupViewPortSize: string;

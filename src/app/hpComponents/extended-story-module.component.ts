@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostBinding } from '@angular/core';
 import { HpService } from '../hp.service';
 
 @Component({
@@ -6,6 +6,8 @@ import { HpService } from '../hp.service';
   templateUrl: '../hpTemplateComponents/extended-story-module.component.html'
 })
 export class ExtendedStoryModuleComponent implements OnInit {
+  @HostBinding('class.background-color-off-white')
+  @HostBinding('class.extended-story-module')
   @Input() componentData: any;
   @Input() viewPortSize: string;
   displayGroupViewPortSize: string;

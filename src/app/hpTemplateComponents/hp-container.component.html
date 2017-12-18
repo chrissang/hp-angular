@@ -1,7 +1,8 @@
 <main style="min-height:100vh">
   <div class="homePage-container">
     <!-- <ng-container #hpModuleContainer></ng-container> -->
-      <ng-template ngFor let-data [ngForOf]="arrayOfData" #hpModuleContainer>
+
+      <!-- <ng-template ngFor let-data [ngForOf]="arrayOfData" #hpModuleContainer>
         <ng-container [ngSwitch]="data.module">
           <ng-container *ngSwitchCase="'large-feature-module'">
             <section *ngIf="loadComponent(data.module,data.data)" class="large-feature-module background-color-off-white" data-module-type="LF">
@@ -73,6 +74,74 @@
                   [viewPortSize]="viewPortSize">
                 </app-hp-image-link-double-module>
             </section>
+          </ng-container>
+        </ng-container>
+      </ng-template> -->
+
+      <ng-template ngFor let-data [ngForOf]="arrayOfData" #hpModuleContainer>
+        <ng-container [ngSwitch]="data.module">
+          <ng-container *ngSwitchCase="'large-feature-module'">
+              <app-hp-large-feature-module *ngIf="loadComponent(data.module,data.data)"
+                data-module-type="LF"
+                [componentData]="data.data"
+                [viewPortSize]="viewPortSize">
+              </app-hp-large-feature-module>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="'seo-link-module'">
+              <app-hp-seo-link-module *ngIf="loadComponent(data.module,data.data)"
+                data-module-type="TL_SEO"
+                [componentData]="data.data"
+                [viewPortSize]="viewPortSize">
+              </app-hp-seo-link-module>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="'small-feature-module'">
+              <app-hp-small-feature-module *ngIf="loadComponent(data.module,data.data)"
+                data-module-type="SF"
+                [componentData]="data.data"
+                [viewPortSize]="viewPortSize">
+              </app-hp-small-feature-module>
+          </ng-container>
+          
+          <ng-container *ngSwitchCase="'collection-grid-module'">
+              <app-hp-collection-grid-module *ngIf="loadComponent(data.module,data.data)"
+                data-module-type="CG"
+                [componentData]="data.data"
+                [viewPortSize]="viewPortSize">
+              </app-hp-collection-grid-module>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="'extended-story-module'">
+              <app-hp-extended-story-module *ngIf="loadComponent(data.module,data.data)"
+                data-module-type="ES"
+                [componentData]="data.data"
+                [viewPortSize]="viewPortSize">
+              </app-hp-extended-story-module>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="'text-link-module'">
+              <app-hp-text-link-module *ngIf="loadComponent(data.module,data.data)"
+                data-module-type="TL"
+                [componentData]="data.data"
+                [viewPortSize]="viewPortSize">
+              </app-hp-text-link-module>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="'button-link-double-module'">
+              <app-hp-button-link-double-module *ngIf="loadComponent(data.module,data.data)"
+                data-module-type="BD"
+                [componentData]="data.data"
+                [viewPortSize]="viewPortSize">
+              </app-hp-button-link-double-module>
+          </ng-container>
+          
+          <ng-container *ngSwitchCase="'image-link-double-module'">
+              <app-hp-image-link-double-module *ngIf="loadComponent(data.module,data.data)"
+                data-module-type="LD"
+                [componentData]="data.data"
+                [viewPortSize]="viewPortSize">
+              </app-hp-image-link-double-module>
           </ng-container>
         </ng-container>
       </ng-template>

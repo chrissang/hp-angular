@@ -315,7 +315,7 @@ export class HpService {
                     },
                     'sections': [
                         {
-                            'item': '47340',
+                            'item': 47340,
                             'image': {
                                 'customImage': {
                                     'small': 'https://www.uncommongoods.com/images/hp/B/D1_CG_20171211_360px.jpg',
@@ -326,7 +326,7 @@ export class HpService {
                             }
                         },
                         {
-                            'item': '47508',
+                            'item': 47508,
                             'image': {
                                 'customImage': {
                                     'small': 'https://www.uncommongoods.com/images/hp/B/D2_CG_20171211_360px.jpg',
@@ -337,7 +337,7 @@ export class HpService {
                             }
                         },
                         {
-                            'item': '47199',
+                            'item': 47199,
                             'image': {
                                 'customImage': {
                                     'small': 'https://www.uncommongoods.com/images/hp/B/D3_CG_20171211_360px.jpg',
@@ -348,7 +348,7 @@ export class HpService {
                             }
                         },
                         {
-                            'item': '47598',
+                            'item': 47598,
                             'image': {
                                 'customImage': {
                                     'small': 'https://www.uncommongoods.com/images/hp/B/D4_CG_20171211_360px.jpg',
@@ -359,7 +359,7 @@ export class HpService {
                             }
                         },
                         {
-                            'item': '47349',
+                            'item': 47349,
                             'image': {
                                 'customImage': {
                                     'small': 'https://www.uncommongoods.com/images/hp/B/D5_CG_20171211_360px.jpg',
@@ -370,7 +370,7 @@ export class HpService {
                             }
                         },
                         {
-                            'item': '47493',
+                            'item': 47493,
                             'image': {
                                 'customImage': {
                                     'small': 'https://www.uncommongoods.com/images/hp/B/D6_CG_20171211_360px.jpg',
@@ -741,7 +741,7 @@ export class HpService {
         };
     }
 
-    displayGroup(arry) {
+    displayGroup(arry: any) {
       const sectionArray = [];
       arry.forEach((el, i) => {
           sectionArray.push(el.displayModuleOn);
@@ -767,7 +767,7 @@ export class HpService {
       }[displayModuleOn];
     }
 
-    productImgPath(itemId) {
+    productImgPath(itemId: number) {
       const itemDir = 'https://www.uncommongoods.com/images/items/';
       const itemIdTrim = itemId.toString().slice(0, -2);
       return itemDir + itemIdTrim + '00/' + itemId + '_1_180px.jpg 180w, '
@@ -776,7 +776,7 @@ export class HpService {
         + itemDir + itemIdTrim + '00/' + itemId + '_1_1200px.jpg 1200w';
     }
 
-    productImgPathSrc(itemId: number, size: number) {
+    productImgPathSrc(itemId: any, size: number) {
         const itemDir = 'https://www.uncommongoods.com/images/items/';
         const itemIdTrim = itemId.toString().slice(0, -2);
 
@@ -794,7 +794,7 @@ export class HpService {
         }
     }
 
-    responsiveImage(itemId: number, largeImage: string, smallImage: string) {
+    responsiveImage(itemId: any, largeImage: string, smallImage: string) {
         let responsiveValue: string;
         const largeImageSize = largeImage.split('_').pop().split('.')[0].slice(0, -2);
         const smallImageSize = smallImage.split('_').pop().split('.')[0].slice(0, -2);
@@ -804,7 +804,7 @@ export class HpService {
         return responsiveValue;
     }
 
-    classNameBlockGrid(sectionData, viewPortSize) {
+    classNameBlockGrid(sectionData: any, viewPortSize: string) {
         const nonHiddenModuleSections = [];
         if (viewPortSize === 'small') {
             return 'small-6 columns';
@@ -842,7 +842,7 @@ export class HpService {
         }
     }
 
-    className(sectionData, viewPortSize) {
+    className(sectionData: any, viewPortSize: string) {
         const nonHiddenModuleSections = [];
         if (viewPortSize === 'large') {
             sectionData.forEach((module, index) => {
@@ -870,13 +870,14 @@ export class HpService {
         }
     }
 
-    hpTracking(hpModuleArry) {
+    hpTracking(hpModuleArry: any) {
         const alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         const totalModules = hpModuleArry.length;
         hpModuleArry.forEach((el: any, index: number) => {
             const anchorTagsArry = el.querySelectorAll('a');
             const alphaChar = alpha.charAt(index);
             const moduleType = el.getAttribute('data-module-type');
+            console.log('el ', el);
             anchorTagsArry.forEach((tag: any, i: number) => {
                 let trackingLink: string;
                 let linkNumber: number;
