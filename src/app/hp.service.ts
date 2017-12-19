@@ -22,6 +22,12 @@ export class HpService {
         this.viewPort.next(size);
     }
 
+    // let bSubject = new BehaviorSubject('a');
+    // bSubject.next('b');
+    // bSubject.subscribe((value) => {
+    //     console.log('Subscription got', value);
+    // });
+
     getHpData() {
         return {
             'A': {
@@ -877,7 +883,7 @@ export class HpService {
             const anchorTagsArry = el.querySelectorAll('a');
             const alphaChar = alpha.charAt(index);
             const moduleType = el.getAttribute('data-module-type');
-            console.log('el ', el);
+
             anchorTagsArry.forEach((tag: any, i: number) => {
                 let trackingLink: string;
                 let linkNumber: number;
@@ -922,10 +928,7 @@ export class HpService {
                     tag.setAttribute('onclick', `javascript: pageTracker._trackPageview('/internal` + trackingLink + `?source=` + trackingCode + `');dataLayer.push({'internalHPModuleLinkUrl':'/internal` + trackingLink + `?source=` + trackingCode + `'},{'event':'fireGTMTrackHPModulePageView'});onPromoClick('` + id + `', '` + name + `', '` + creative + `', '` + pos + `')`);
                 } else {
                     // tslint:disable-next-line:max-line-length
-                    tag.setAttribute('onclick', `javascript: pageTracker._trackPageview('/internal` + trackingLink + `?source=` + trackingCode + `');dataLayer.push({'internalHPModuleLinkUrl':'/internal` + trackingLink + `?source=` + trackingCode + `'},{'event':'fireGTMTrackHPModulePageView'});onPromoClick('` + id + `', '` + name + `', '` + creative + `', '` + pos + `')`);
-                    // $('a[href=""]').click(function (event) { // where href are blank
-                    //     event.preventDefault();
-                    // })
+                    tag.setAttribute('onclick', `javascript: event.preventDefault(); pageTracker._trackPageview('/internal` + trackingLink + `?source=` + trackingCode + `');dataLayer.push({'internalHPModuleLinkUrl':'/internal` + trackingLink + `?source=` + trackingCode + `'},{'event':'fireGTMTrackHPModulePageView'});onPromoClick('` + id + `', '` + name + `', '` + creative + `', '` + pos + `')`);
                 }
             });
         });
