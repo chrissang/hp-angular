@@ -1,34 +1,38 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { EventManager } from '@angular/platform-browser';
 
 @Injectable()
 export class HpService {
-    private viewPort: Subject<any>;
+    private viewPort = new BehaviorSubject <string>(null);
+    viewPort$ = this.viewPort.asObservable();
 
     constructor(private eventManager: EventManager) {
-        this.viewPort = new Subject();
         this.eventManager.addGlobalEventListener('window', 'resize', this.onResize.bind(this));
     }
 
-    get onResize$(): Observable<any> {
-        return this.viewPort.asObservable();
+    onResize(event: UIEvent) {
+        let innerWidth: number;
+        let breakPoint: string;
+        innerWidth = window.innerWidth;
+        breakPoint = this.getCurrentBreakPoint(innerWidth);
+        this.viewPort.next(breakPoint);
     }
 
-    private onResize(event: UIEvent) {
-        const size = window.getComputedStyle(document.querySelector('body'),
-         ':before').getPropertyValue('content').replace(/\"/g, '');
-        this.viewPort.next(size);
+    getCurrentBreakPoint(pixelWidth: number) {
+        if (pixelWidth <= 640) {
+            return 'small';
+        } else if (pixelWidth > 640 && pixelWidth <= 1024) {
+            return 'medium';
+        } else if (pixelWidth > 1024 && pixelWidth <= 1440) {
+            return 'large';
+        } else if (pixelWidth > 1440 && pixelWidth <= 1920) {
+            return 'xlarge';
+        }
     }
 
-    // let bSubject = new BehaviorSubject('a');
-    // bSubject.next('b');
-    // bSubject.subscribe((value) => {
-    //     console.log('Subscription got', value);
-    // });
-
-    getHpData() {
+    getHpJson() {
         return {
             'A': {
                 'large-feature-module': {

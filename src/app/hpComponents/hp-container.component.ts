@@ -1,7 +1,7 @@
-// import { element } from 'protractor';
 import { HpService } from './../hp.service';
-import { Component, OnInit, AfterViewInit, ViewChild, ViewContainerRef, AfterContentInit } from '@angular/core';
-import { ComponentFactory, ComponentFactoryResolver } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+// import { ComponentFactory, ComponentFactoryResolver } from '@angular/core';
 import { LargeFeatureModuleComponent } from './large-feature-module.component';
 import { SmallFeatureModuleComponent } from './small-feature-module.component';
 import { SeoLinkModuleComponent } from './seo-link-module.component';
@@ -17,44 +17,44 @@ import { ButtonLinkDoubleModuleComponent } from './button-link-double-module.com
   templateUrl: '../hpTemplateComponents/hp-container.component.html'
 })
 
-export class HpContainerComponent implements OnInit, AfterViewInit, AfterContentInit {
+export class HpContainerComponent implements OnInit, AfterViewInit {
   @ViewChild('hpModuleContainer', { read: ViewContainerRef }) hpModuleContainer;
   jsonData;
   arrayOfData;
   hpService;
   viewPortSize;
 
-  constructor(service: HpService, private resolver: ComponentFactoryResolver) {
+  constructor(service: HpService) {
     this.hpService = service;
-    this.jsonData = this.hpService.getHpData();
+    this.jsonData = this.hpService.getHpJson();
     this.arrayOfData = Object.keys(this.jsonData).map((key) => ({
       module: Object.keys(this.jsonData[key])[0],
       data: this.jsonData[key][Object.keys(this.jsonData[key])[0]]
     }));
   }
 
-  mapComponentName(componentName) {
-    switch (componentName) {
-      case 'large-feature-module':
-        return LargeFeatureModuleComponent;
-      case 'small-feature-module':
-        return SmallFeatureModuleComponent;
-      case 'seo-link-module':
-        return SeoLinkModuleComponent;
-      case 'collection-grid-module':
-        return CollectionGridModuleComponent;
-      case 'extended-story-module':
-        return ExtendedStoryModuleComponent;
-      case 'basic-story-module':
-        return BasicStoryModuleComponent;
-      case 'text-link-module':
-        return TextLinkModuleComponent;
-      case 'image-link-double-module':
-        return ImageLinkDoubleModuleComponent;
-      case 'button-link-double-module':
-        return ButtonLinkDoubleModuleComponent;
-    }
-  }
+  // mapComponentName(componentName) {
+  //   switch (componentName) {
+  //     case 'large-feature-module':
+  //       return LargeFeatureModuleComponent;
+  //     case 'small-feature-module':
+  //       return SmallFeatureModuleComponent;
+  //     case 'seo-link-module':
+  //       return SeoLinkModuleComponent;
+  //     case 'collection-grid-module':
+  //       return CollectionGridModuleComponent;
+  //     case 'extended-story-module':
+  //       return ExtendedStoryModuleComponent;
+  //     case 'basic-story-module':
+  //       return BasicStoryModuleComponent;
+  //     case 'text-link-module':
+  //       return TextLinkModuleComponent;
+  //     case 'image-link-double-module':
+  //       return ImageLinkDoubleModuleComponent;
+  //     case 'button-link-double-module':
+  //       return ButtonLinkDoubleModuleComponent;
+  //   }
+  // }
 
   displayComponent(componentData) {
     const displayGroupSize = this.hpService.displayGroup(componentData.sections);
@@ -86,39 +86,44 @@ export class HpContainerComponent implements OnInit, AfterViewInit, AfterContent
   }
 
   ngOnInit() {
-    const size = window.getComputedStyle(document.querySelector('body'),
-    ':before').getPropertyValue('content').replace(/\"/g, '');
-    this.viewPortSize = size;
+    let innerWidth: number;
+    let breakPoint: string;
+    innerWidth = window.innerWidth;
+    breakPoint = this.hpService.getCurrentBreakPoint(innerWidth);
+    this.hpService.viewPort.subscribe((value) => {
+      if (value !== null) {
+        this.viewPortSize = value;
+      } else {
+        this.hpService.viewPort.next(breakPoint);
+      }
+    });
   }
 
-  ngAfterContentInit() {
-    // Object.keys(this.jsonData).forEach((key) => {
-    //   let moduleName: string;
-    //   let componentName: any;
-    //   let componentData: any;
-    //   let addCompnent: any;
-    //   let compnentRef: any;
+  // ngAfterContentInit() {
+  //   Object.keys(this.jsonData).forEach((key) => {
+  //     let moduleName: string;
+  //     let componentName: any;
+  //     let componentData: any;
+  //     let addCompnent: any;
+  //     let compnentRef: any;
 
-    //   moduleName = Object.keys(this.jsonData[key])[0];
-    //   componentName = this.mapComponentName(moduleName);
-    //   componentData = this.jsonData[key][Object.keys(this.jsonData[key])[0]];
-    //   addCompnent = this.resolver.resolveComponentFactory(componentName);
-    //   compnentRef = this.hpModuleContainer.createComponent(addCompnent);
-    //   compnentRef.instance.componentData = componentData;
-    //   compnentRef.instance.viewPortSize = this.viewPortSize;
-    //   this.hpService.onResize$.subscribe(size => {
-    //     this.viewPortSize = size;
-    //     compnentRef.instance.viewPortSize = size;
-    //   });
-    // });
-  }
+  //     moduleName = Object.keys(this.jsonData[key])[0];
+  //     componentName = this.mapComponentName(moduleName);
+  //     componentData = this.jsonData[key][Object.keys(this.jsonData[key])[0]];
+  //     addCompnent = this.resolver.resolveComponentFactory(componentName);
+  //     compnentRef = this.hpModuleContainer.createComponent(addCompnent);
+  //     compnentRef.instance.componentData = componentData;
+  //     compnentRef.instance.viewPortSize = this.viewPortSize;
+  //     this.hpService.onResize$.subscribe(size => {
+  //       this.viewPortSize = size;
+  //       compnentRef.instance.viewPortSize = size;
+  //     });
+  //   });
+  // }
 
   ngAfterViewInit() {
-    console.log('component data ', this.arrayOfData);
     const hpModuleArry = Array.from(this.hpModuleContainer.element.nativeElement.parentElement.children);
-    this.hpService.onResize$.subscribe(size => {
-      this.viewPortSize = size;
-    });
     this.hpService.hpTracking(hpModuleArry);
+    console.log('component data ', this.arrayOfData);
   }
 }
