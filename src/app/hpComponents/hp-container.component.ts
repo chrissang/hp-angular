@@ -1,5 +1,5 @@
 import { HpService } from './../hp.service';
-import { Component, OnInit, AfterViewInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ViewContainerRef, AfterViewChecked, HostListener } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 // import { ComponentFactory, ComponentFactoryResolver } from '@angular/core';
 import { LargeFeatureModuleComponent } from './large-feature-module.component';
@@ -17,12 +17,28 @@ import { ButtonLinkDoubleModuleComponent } from './button-link-double-module.com
   templateUrl: '../hpTemplateComponents/hp-container.component.html'
 })
 
-export class HpContainerComponent implements OnInit, AfterViewInit {
-  @ViewChild('hpModuleContainer', { read: ViewContainerRef }) hpModuleContainer;
+export class HpContainerComponent implements OnInit, AfterViewInit, AfterViewChecked {
+  private viewPort = new BehaviorSubject <string>(null);
+
+  viewPort$ = this.viewPort.asObservable();
   jsonData;
   arrayOfData;
   hpService;
   viewPortSize;
+
+  @ViewChild('hpModuleContainer', { read: ViewContainerRef }) hpModuleContainer;
+  @HostListener('window:resize') onResize() {
+    let innerWidth: number;
+    let breakPoint: string;
+    innerWidth = window.innerWidth;
+    breakPoint = this.getCurrentBreakPoint(innerWidth);
+    if (breakPoint !== this.viewPort.value) {
+        this.viewPort.next(breakPoint);
+        // console.log(this.viewPortSize);
+        // const hpModuleArry = Array.from(this.hpModuleContainer.element.nativeElement.parentElement.children);
+        // this.hpService.hpTracking(hpModuleArry);
+    }
+  }
 
   constructor(service: HpService) {
     this.hpService = service;
@@ -33,28 +49,17 @@ export class HpContainerComponent implements OnInit, AfterViewInit {
     }));
   }
 
-  // mapComponentName(componentName) {
-  //   switch (componentName) {
-  //     case 'large-feature-module':
-  //       return LargeFeatureModuleComponent;
-  //     case 'small-feature-module':
-  //       return SmallFeatureModuleComponent;
-  //     case 'seo-link-module':
-  //       return SeoLinkModuleComponent;
-  //     case 'collection-grid-module':
-  //       return CollectionGridModuleComponent;
-  //     case 'extended-story-module':
-  //       return ExtendedStoryModuleComponent;
-  //     case 'basic-story-module':
-  //       return BasicStoryModuleComponent;
-  //     case 'text-link-module':
-  //       return TextLinkModuleComponent;
-  //     case 'image-link-double-module':
-  //       return ImageLinkDoubleModuleComponent;
-  //     case 'button-link-double-module':
-  //       return ButtonLinkDoubleModuleComponent;
-  //   }
-  // }
+  getCurrentBreakPoint(pixelWidth: number) {
+    if (pixelWidth <= 640) {
+        return 'small';
+    } else if (pixelWidth > 640 && pixelWidth <= 1024) {
+        return 'medium';
+    } else if (pixelWidth > 1024 && pixelWidth <= 1440) {
+        return 'large';
+    } else if (pixelWidth > 1440 && pixelWidth <= 1920) {
+        return 'xlarge';
+    }
+}
 
   displayComponent(componentData) {
     const displayGroupSize = this.hpService.displayGroup(componentData.sections);
@@ -89,15 +94,50 @@ export class HpContainerComponent implements OnInit, AfterViewInit {
     let innerWidth: number;
     let breakPoint: string;
     innerWidth = window.innerWidth;
-    breakPoint = this.hpService.getCurrentBreakPoint(innerWidth);
-    this.hpService.viewPort.subscribe((value) => {
+    breakPoint = this.getCurrentBreakPoint(innerWidth);
+    this.viewPort.subscribe((value) => {
       if (value !== null) {
         this.viewPortSize = value;
       } else {
-        this.hpService.viewPort.next(breakPoint);
+        this.viewPort.next(breakPoint);
       }
     });
   }
+
+  ngAfterViewInit() {
+    const hpModuleArry = Array.from(this.hpModuleContainer.element.nativeElement.parentElement.children);
+    this.hpService.hpTracking(hpModuleArry);
+    console.log('component data ', this.arrayOfData);
+  }
+
+  ngAfterViewChecked() {
+    let numberOfElCurrent: number;
+    numberOfElCurrent = this.hpModuleContainer.element.nativeElement.parentElement.children.length;
+    // console.log('ngAfterViewChecked ', this.hpModuleContainer.element.nativeElement.parentElement.children.length);
+  }
+
+  // mapComponentName(componentName) {
+  //   switch (componentName) {
+  //     case 'large-feature-module':
+  //       return LargeFeatureModuleComponent;
+  //     case 'small-feature-module':
+  //       return SmallFeatureModuleComponent;
+  //     case 'seo-link-module':
+  //       return SeoLinkModuleComponent;
+  //     case 'collection-grid-module':
+  //       return CollectionGridModuleComponent;
+  //     case 'extended-story-module':
+  //       return ExtendedStoryModuleComponent;
+  //     case 'basic-story-module':
+  //       return BasicStoryModuleComponent;
+  //     case 'text-link-module':
+  //       return TextLinkModuleComponent;
+  //     case 'image-link-double-module':
+  //       return ImageLinkDoubleModuleComponent;
+  //     case 'button-link-double-module':
+  //       return ButtonLinkDoubleModuleComponent;
+  //   }
+  // }
 
   // ngAfterContentInit() {
   //   Object.keys(this.jsonData).forEach((key) => {
@@ -120,10 +160,4 @@ export class HpContainerComponent implements OnInit, AfterViewInit {
   //     });
   //   });
   // }
-
-  ngAfterViewInit() {
-    const hpModuleArry = Array.from(this.hpModuleContainer.element.nativeElement.parentElement.children);
-    this.hpService.hpTracking(hpModuleArry);
-    console.log('component data ', this.arrayOfData);
-  }
 }
